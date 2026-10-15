@@ -57,5 +57,4 @@
   .viewerActions > :global(.icon-button) { position: absolute; top: 3px; right: 3px; }
   .viewerFooter { padding-inline: 5px; gap: 4px; }
 }
-@media (prefers-reduced-motion: reduce) { .image { animation: none; } }
 :global(.portfolio[data-motion="reduced"]) .image { animation: none; }

@@ -47,8 +47,6 @@
   .expandHint { opacity: 1; }
   .videoSection { padding-top: 26px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .photoGrid { animation: none; }
-  .filter, .photoButton img, .expandHint { transition: none; }
-  .photoButton:hover img { transform: none; }
-}
+:global(.portfolio[data-motion="reduced"]) .photoGrid { animation: none; }
+:global(.portfolio[data-motion="reduced"]) .filter, :global(.portfolio[data-motion="reduced"]) .photoButton img, :global(.portfolio[data-motion="reduced"]) .expandHint { transition: none; }
+:global(.portfolio[data-motion="reduced"]) .photoButton:hover img { transform: none; }

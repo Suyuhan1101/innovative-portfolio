@@ -60,6 +60,11 @@
 .intro-hint { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: clamp(1.25rem, 4svh, 2rem); color: var(--green); font-size: var(--text-small); }
 .intro-button:hover .intro-hint { color: var(--accent); }
 .intro-screen:focus-visible .intro-hint { color: var(--accent); text-decoration: underline; }
+.motion-settings { display: flex; align-items: center; gap: 12px; width: fit-content; color: var(--muted); font-size: .8125rem; }
+.motion-settings select { min-height: 44px; max-width: 10rem; padding: 6px 22px 6px 8px; border: 0; border-bottom: 1px solid var(--rule); border-radius: 0; background: var(--paper); color: var(--green); font: inherit; cursor: pointer; }
+.motion-settings select:disabled { cursor: default; }
+.intro-motion-settings { position: fixed; bottom: max(24px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); z-index: 101; }
+.menu-motion-settings { grid-column: 1 / -1; justify-self: center; }
 .menu-layer { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 80px 24px 48px; overflow-y: auto; }
 .menu-cover { position: fixed; inset: 0; background: rgb(250 249 244 / .94); transform: scaleY(0); transform-origin: 50% 0; will-change: transform, opacity; }
 .menu-close { position: fixed; right: clamp(20px, 4.1vw, 74px); top: 20px; z-index: 2; opacity: 0; }
@@ -78,8 +83,7 @@
 .home-morph-surface { position: absolute; inset: 0; border: 1px solid var(--green); background: var(--green); transform-origin: 0 0; will-change: transform, background-color; }
 .home-morph-face { position: absolute; inset: 1px; container-type: inline-size; display: flex; flex-direction: column; justify-content: center; align-items: center; transform-origin: 0 0; will-change: transform, opacity; }
 .home-morph-title { position: absolute; left: 0; top: 0; color: var(--ink); opacity: 0; clip-path: inset(0 100% 0 0); }
-@media (prefers-reduced-motion: reduce) { .tile-fill-face { transition-duration: .1s; } }
-.portfolio[data-motion="full"] .tile-fill-face { transition-duration: .36s; }
+.portfolio[data-motion="reduced"] .tile-fill-face { transition-duration: .1s; }
 .section-page { padding-top: 34px; }
 .section-heading { display: flex; align-items: center; gap: clamp(.75rem, 2vw, 1.875rem); margin-bottom: 40px; }
 .section-tile { width: clamp(3.5rem, 17vw, 5.5rem); height: clamp(3.5rem, 17vw, 5.5rem); flex: 0 0 auto; }

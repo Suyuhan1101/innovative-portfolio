@@ -82,4 +82,4 @@
   .listening :global(.music-player) { max-width: 480px; }
   .concert { padding-top: 25px; }
 }
-@media (prefers-reduced-motion: reduce) { .playButton { transition: none; } }
+:global(.portfolio[data-motion="reduced"]) .playButton { transition: none; }

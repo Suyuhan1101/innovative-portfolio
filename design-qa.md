@@ -319,3 +319,15 @@ final result: passed
 - 最终 `npm run build` 通过 TypeScript 和 16 个页面生成；`git diff --check` 通过。此轮为局部 CSS 修改，没有新增依赖、修改内容或调整路由。
 
 final result: passed
+
+# 2026-10-15 正式网站动效速度修复
+
+线上复现：系统的 prefers-reduced-motion 为 true，旧生产版默认跟随系统，开场所有阶段被限制为 120ms，完整开场实测 530ms；开发版却默认 full，导致本地与正式网站节奏不同。
+
+- 开发、生产统一默认完整动效，保持已确认的时长。欢迎页和菜单提供 Full、Reduced、Follow system，选择保存在当前网站的 localStorage。开发专用 qa-motion 参数仍仅在开发环境生效。
+- JS 转场和各栏目的装饰 CSS 共用 data-motion，Full 不再被组件自己的系统媒体查询覆盖。Reduced 和 Follow system 仍可使用；菜单焦点循环已包含新增 select，动画执行期间禁用设置。
+- 使用 next build + next start 在 3001 端口测试实际生产构建。系统 reduced=true 时默认为 full，首页开场 3133ms，菜单到 Projects 完整转场 4104ms，卡片扫入时长 550ms。
+- Reduced 刷新保留选择，开场 539ms、卡片过渡为 0s；Follow system 正确解析为 reduced；恢复 Full 后刷新仍为 full。320px 菜单设置宽约 214px，页面无横向溢出，设置处 Tab 返回 Close menu。
+- 本地应用 error 日志为空。生产构建通过 TypeScript 和 16 页生成。浏览器记录：docs/qa/production-motion-checks.json；移动端截图：docs/qa/motion-settings-mobile.png。
+
+final result: passed (local production build)

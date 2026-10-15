@@ -26,10 +26,11 @@ type HomeTitleLayout = { width: number; height: number; fontSize: string; lineHe
 type Flight = { page: PageId; rect: Rect; appearance: "home" | "section" | "menu"; returnToGrid: boolean; homeTitle?: HomeTitleLayout };
 type HomeRevealHooks = { onGridVisible?: () => Promise<void>; onHeroVisible?: () => Promise<void> };
 type MenuState = "closed" | "opening" | "open" | "closing" | "navigating";
-type MotionPreview = "full" | "system" | "reduced";
+type MotionPreference = "full" | "system" | "reduced";
 type Frames = Record<string, number | string | number[] | string[]>;
 const motionPreviewKey = "portfolio:motion-preview";
-const isMotionPreview = (value: string | null): value is MotionPreview => value === "full" || value === "system" || value === "reduced";
+const motionPreferenceKey = "portfolio:motion-preference";
+const isMotionPreference = (value: string | null): value is MotionPreference => value === "full" || value === "system" || value === "reduced";
 const nextFrame = () => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
 
 export default function PortfolioShell({ children }: { children: React.ReactNode }) {
@@ -39,8 +40,8 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
   const [musicPanelOpen, setMusicPanelOpen] = useState(false);
   const musicPanelRef = useRef<MusicPanelHandle>(null);
   const prefersReducedMotion = useReducedMotion();
-  const [motionPreview, setMotionPreview] = useState<MotionPreview>(process.env.NODE_ENV === "development" ? "full" : "system");
-  const reduced = motionPreview === "reduced" || (motionPreview === "system" && Boolean(prefersReducedMotion));
+  const [motionPreference, setMotionPreference] = useState<MotionPreference>("full");
+  const reduced = motionPreference === "reduced" || (motionPreference === "system" && Boolean(prefersReducedMotion));
   const [page, setPage] = useState<PageId>(() => pageFromPath(pathname));
   const [viewPath, setViewPath] = useState(pathname);
   const [entered, setEntered] = useState(false);
@@ -85,18 +86,32 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
   const startedAtRef = useRef(0);
   const elapsedRef = useRef(0);
 
-  // Development previews show the designed timing by default. Remember an
-  // explicit QA choice for this tab because internal routes omit the query.
-  // Production never reads this override and follows the system preference.
+  // Preview and production share the designed rhythm. A visitor's explicit
+  // preference survives refreshes; development-only QA overrides stay in this tab.
   useEffect(() => {
-    if (process.env.NODE_ENV !== "development") return;
-    const requested = new URLSearchParams(window.location.search).get("qa-motion");
     let saved: string | null = null;
-    try { saved = window.sessionStorage.getItem(motionPreviewKey); } catch { /* Preview also works with storage disabled. */ }
-    const preference = isMotionPreview(requested) ? requested : isMotionPreview(saved) ? saved : "full";
-    setMotionPreview(preference);
-    try { window.sessionStorage.setItem(motionPreviewKey, preference); } catch { /* Keep the default usable without storage. */ }
+    try { saved = window.localStorage.getItem(motionPreferenceKey); } catch { /* Keep the default usable without storage. */ }
+    let preference: MotionPreference = isMotionPreference(saved) ? saved : "full";
+    if (process.env.NODE_ENV === "development") {
+      const requested = new URLSearchParams(window.location.search).get("qa-motion");
+      let preview: string | null = null;
+      try { preview = window.sessionStorage.getItem(motionPreviewKey); } catch { /* QA also works without storage. */ }
+      if (isMotionPreference(requested)) preference = requested;
+      else if (isMotionPreference(preview)) preference = preview;
+      if (isMotionPreference(requested) || isMotionPreference(preview)) {
+        try { window.sessionStorage.setItem(motionPreviewKey, preference); } catch { /* Keep this choice in memory. */ }
+      }
+    }
+    setMotionPreference(preference);
   }, []);
+
+  const changeMotionPreference = (preference: MotionPreference) => {
+    setMotionPreference(preference);
+    try { window.localStorage.setItem(motionPreferenceKey, preference); } catch { /* The current visit still uses the choice. */ }
+    if (process.env.NODE_ENV === "development") {
+      try { window.sessionStorage.removeItem(motionPreviewKey); } catch { /* Storage is optional. */ }
+    }
+  };
 
   const mark = (next: string) => { traceRef.current.push(next); elapsedRef.current = Math.round(performance.now() - startedAtRef.current); setPhase(next); };
   const startOperation = () => {
@@ -316,14 +331,14 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
       if (musicPanelRef.current?.isOpen()) return;
       if (event.key === "Escape") { event.preventDefault(); void closeMenu(); }
       if (event.key !== "Tab") return;
-      const focusable = Array.from(menuRef.current?.querySelectorAll<HTMLElement>("a[href], button:not(:disabled)") ?? []);
+      const focusable = Array.from(menuRef.current?.querySelectorAll<HTMLElement>("a[href], button:not(:disabled), select:not(:disabled)") ?? []);
       const first = focusable[0]; const last = focusable[focusable.length - 1];
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
     };
     document.addEventListener("keydown", keyboard);
     return () => document.removeEventListener("keydown", keyboard);
-  }, [menu]);
+  }, [menu, reduced]);
 
   async function navigate(destination: PageId, element: HTMLElement, origin: "home" | "header" | "menu" = "home") {
     if (busyRef.current || !enteredRef.current) return;
@@ -587,7 +602,9 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
     else mainRef.current?.querySelector<HTMLElement>("h1")?.focus({ preventScroll: true });
   };
 
-  return <div className="portfolio" data-entered={entered} data-music-active={musicActive} data-phase={phase} data-motion={entered ? (reduced ? "reduced" : "full") : "pending"} data-transition-ms={elapsedRef.current} data-transition-sequence={traceRef.current.join(",")}>
+  const motionSettings = (className: string) => <label className={`motion-settings ${className}`}><span>Animations</span><select aria-label="Animation preference" value={motionPreference} disabled={busy} onChange={(event) => { if (isMotionPreference(event.target.value)) changeMotionPreference(event.target.value); }}><option value="full">Full</option><option value="reduced">Reduced</option><option value="system">Follow system</option></select></label>;
+
+  return <div className="portfolio" data-entered={entered} data-music-active={musicActive} data-phase={phase} data-motion={entered ? (reduced ? "reduced" : "full") : "pending"} data-motion-preference={motionPreference} data-transition-ms={elapsedRef.current} data-transition-sequence={traceRef.current.join(",")}>
     <header className={`site-header ${menuNavigation ? "over-menu" : ""}`} ref={headerRef} inert={!entered || (menuMounted && !menuNavigation)}>
       <div className="brand-group"><button className="brand-button" aria-label="Return to Home" disabled={busy} onClick={(event) => void navigate("home", event.currentTarget, "header")}><span className="brand-text" ref={brandRef} data-header-item>Welcome to My World</span></button><CodeIcon className="brand-code" weight="light" aria-hidden="true" data-header-item /></div>
       <div className="header-actions"><button className="contact-button" data-header-item disabled={busy} onClick={() => setDialog({ type: "contact" })}>Contact</button><button className="menu-trigger icon-button" data-header-item aria-label="Open menu" aria-haspopup="dialog" aria-expanded={menuMounted} aria-controls="site-menu" onClick={() => void openMenu()} disabled={busy} ref={menuButtonRef}><SquaresFourIcon size={29} weight="fill" /></button></div>
@@ -596,9 +613,10 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
       <div key={viewPath}>{page === "home" ? <HomePage slide={slide} selectSlide={setSlide} paused={paused} togglePause={() => setPaused((value) => !value)} navigate={(next, element, origin) => void navigate(next, element, origin)} reduced={reduced} hiddenTile={hideTile && flight?.returnToGrid ? flight.page : null} hiddenTitle={hideTile && homeTitleFlight} /> : <SectionPage caseStudy={caseStudy} onCaseStudy={(entry) => void navigateCase(entry, entry.section)} onCaseStudyBack={() => { if (caseStudy) void navigateCase(null, caseStudy.section); }} page={page} targetRef={targetRef} hideTile={hideTile} onHome={(element) => void navigate("home", element, "header")} onPhoto={(index) => setDialog({ type: "photo", index })} onGalleryPhoto={(index, ids) => setDialog({ type: "gallery", index, ids })} onOutreachPhoto={(index) => setDialog({ type: "outreach", index })} onNavigate={(next, element) => void navigate(next, element)} onGraphic={(element) => { graphicTriggerRef.current = element; setDialog({ type: "graphic" }); }} />}</div>
     </main>
     {musicActive && entered && (page !== "about-me" || busy) && !musicInMenu && !dialog && <div className="music-floating"><MusicTransport onStop={restoreTransportFocus} onExpand={expandMusic} disabled={busy} /></div>}
-    {menuMounted && <div ref={menuRef} className={`menu-layer ${musicActive ? "has-music" : ""}`} id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu"><div className="menu-cover" ref={coverRef} /><button ref={closeRef} className="menu-close icon-button" aria-label="Close menu" disabled={busy} onClick={() => void closeMenu()}><XIcon size={36} weight="light" /></button><div className="menu-grid" ref={menuGridRef}>{menuPages.map((id) => <a href={pageHref(id)} className={`tile ${id === page ? "active" : ""}`} aria-current={id === page ? "page" : undefined} key={id} data-page={id} tabIndex={menu === "open" ? 0 : -1} onClick={(event) => { if (event.metaKey || event.ctrlKey || event.shiftKey) return; event.preventDefault(); void navigate(id, event.currentTarget, "menu"); }}><TileFace page={id} interactive /></a>)}</div>{musicActive && musicInMenu && <div className="music-overlay"><MusicTransport onStop={restoreTransportFocus} onExpand={expandMusic} disabled={busy} /></div>}</div>}
+    {menuMounted && <div ref={menuRef} className={`menu-layer ${musicActive ? "has-music" : ""}`} id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu"><div className="menu-cover" ref={coverRef} /><button ref={closeRef} className="menu-close icon-button" aria-label="Close menu" disabled={busy} onClick={() => void closeMenu()}><XIcon size={36} weight="light" /></button><div className="menu-grid" ref={menuGridRef}>{menuPages.map((id) => <a href={pageHref(id)} className={`tile ${id === page ? "active" : ""}`} aria-current={id === page ? "page" : undefined} key={id} data-page={id} tabIndex={menu === "open" ? 0 : -1} onClick={(event) => { if (event.metaKey || event.ctrlKey || event.shiftKey) return; event.preventDefault(); void navigate(id, event.currentTarget, "menu"); }}><TileFace page={id} interactive /></a>)}{motionSettings("menu-motion-settings")}</div>{musicActive && musicInMenu && <div className="music-overlay"><MusicTransport onStop={restoreTransportFocus} onExpand={expandMusic} disabled={busy} /></div>}</div>}
     {flight && <div ref={flightRef} className={`tile active floating-tile from-${flight.appearance} ${homeTitleFlight ? "home-morph" : ""}`} style={{ left: flight.rect.left, top: flight.rect.top, width: flight.rect.width, height: flight.rect.height }} aria-hidden="true">{homeTitleFlight ? <><div className="home-morph-surface" ref={homeSurfaceRef} /><div className="home-morph-face" ref={homeFaceRef}><TileFace page="home" /></div>{flight.homeTitle && <div className="home-morph-title" ref={homeTitleRef} style={{ width: flight.homeTitle.width, height: flight.homeTitle.height }}><HomeHeading style={{ fontSize: flight.homeTitle.fontSize, lineHeight: flight.homeTitle.lineHeight, letterSpacing: flight.homeTitle.letterSpacing }} /></div>}</> : <TileFace page={flight.page} />}</div>}
     {introVisible && <button className="intro-screen" ref={introRef} onClick={() => void enterWorld()} disabled={busy} aria-label="Enter Yuhan Su's world"><span className="intro-button"><span className="intro-title" ref={introTextRef}>Welcome to My World</span><span className="intro-hint">Click to enter <ArrowRightIcon size={22} weight="light" /></span></span></button>}
+    {introVisible && motionSettings("intro-motion-settings")}
     <dialog ref={dialogRef} className={`media-dialog ${dialog?.type === "contact" ? "contact-dialog" : ""} ${musicActive ? "has-music" : ""}`} aria-label={dialog?.type === "contact" ? "Contact Yuhan Su" : dialog?.type === "graphic" ? "Five elements diagram" : "Photograph viewer"} onClose={() => setDialog(null)} onCancel={() => setDialog(null)} onKeyDown={(event) => { if ((dialog?.type === "photo" || dialog?.type === "gallery" || dialog?.type === "outreach") && (event.key === "ArrowLeft" || event.key === "ArrowRight")) { event.preventDefault(); movePhotograph(event.key === "ArrowLeft" ? -1 : 1); } }}>
       <button className="dialog-close icon-button" aria-label="Close dialog" onClick={() => setDialog(null)}><XIcon size={29} weight="light" /></button>
       {dialog?.type === "contact" && <div className="contact-content"><h2>Let's connect.</h2><p>Say hello — I'd love to hear from you.</p><a className="text-link contact-email" href={`mailto:${aboutMe.email}`}>{aboutMe.email}<ArrowUpRightIcon size={20} /></a><a className="text-link" href="https://github.com/Suyuhan1101" target="_blank" rel="noreferrer">View GitHub <ArrowUpRightIcon size={22} /></a></div>}

@@ -83,7 +83,5 @@
   .hexFace { gap: clamp(4px, 2.1cqw, 9px); }
   .courseDetail { min-height: 300px; padding: 20px 0 0 20px; align-items: flex-start; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .detailContent { animation: none; }
-  .hexCourse, .hexCourse::before { transition: none; }
-}
+:global(.portfolio[data-motion="reduced"]) .detailContent { animation: none; }
+:global(.portfolio[data-motion="reduced"]) .hexCourse, :global(.portfolio[data-motion="reduced"]) .hexCourse::before { transition: none; }

@@ -1,7 +1,7 @@
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .about-content { font-size: var(--text-body); line-height: 1.65; }
 .about-top { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr); gap: clamp(30px, 4vw, 64px); align-items: start; }
-.about-greeting h2, .about-story h2, .about-outside h2 { font: 400 clamp(1.75rem, calc(1.2rem + 1.2vw), 2.5rem)/1.15 var(--font-display), Georgia, serif; letter-spacing: -.025em; }
+.about-greeting h2, .about-story h2, .about-outside h2, .about-honors h2 { font: 400 clamp(1.75rem, calc(1.2rem + 1.2vw), 2.5rem)/1.15 var(--font-display), Georgia, serif; letter-spacing: -.025em; }
 .about-greeting > p { max-width: 49ch; margin-top: 14px; color: var(--muted); }
 .about-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 24px; padding: 26px 0; margin: 0; }
 .about-facts dt, .about-symbol > div > span, .about-instruments > span, .about-email > span:first-child { font-size: var(--text-small); color: var(--muted); }
@@ -59,6 +59,19 @@
 .about-links { display: flex; gap: 18px 26px; flex-wrap: wrap; }
 .about-travel { max-width: 420px; justify-self: end; }
 .about-travel img { display: block; width: 100%; height: auto; }
+.about-honors { border-top: 1px solid var(--rule); margin-top: 52px; padding-top: 36px; }
+.about-honors h2 { margin-bottom: 30px; }
+.about-honor-group { display: grid; grid-template-columns: minmax(150px, .7fr) minmax(0, 2.3fr); gap: clamp(24px, 4vw, 56px); padding-block: 24px; border-top: 1px solid var(--rule); }
+.about-honor-group > h3 { margin: 0; font-size: var(--text-body); line-height: 1.5; font-weight: 550; color: var(--green); }
+.about-honor-list { list-style: none; margin: 0; padding: 0; min-width: 0; }
+.about-honor { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 7px 24px; padding-block: 19px; border-top: 1px solid var(--rule); }
+.about-honor:first-child { border-top: 0; padding-top: 0; }
+.about-honor:last-child { padding-bottom: 0; }
+.about-honor h4 { margin: 0; font-size: var(--text-body); line-height: 1.5; font-weight: 550; overflow-wrap: break-word; }
+.about-honor-years { color: var(--green); font-size: var(--text-small); white-space: nowrap; line-height: 1.7; font-variant-numeric: tabular-nums; }
+.about-honor-details { grid-column: 1 / -1; color: var(--muted); font-size: var(--text-small); max-width: 72ch; }
+.about-honor-details > ul { margin: 8px 0 0; padding-left: 20px; }
+.about-honor-details li + li { margin-top: 5px; }
 .about-content > .back-home { margin-top: 36px; }
 /* Keep the transport above the flying navigation tile (90), below the intro (100). */
 .music-floating, .music-overlay { position: fixed; bottom: max(18px, env(safe-area-inset-bottom)); right: clamp(20px, 4.1vw, 74px); z-index: 95; width: min(370px, calc(100vw - 40px)); }
@@ -122,7 +135,9 @@
   .about-instruments p > span { display: block; }
   .music-artwork img { width: min(75%, 220px); }
   .music-artwork > span { font-size: 1.25rem; }
-  .about-story, .about-outside { margin-top: 36px; padding-top: 28px; }
+  .about-story, .about-outside, .about-honors { margin-top: 36px; padding-top: 28px; }
+  .about-honor-group { grid-template-columns: 1fr; gap: 18px; }
+  .about-honor { grid-template-columns: 1fr; gap: 5px; }
   .music-floating, .music-overlay { bottom: max(12px, env(safe-area-inset-bottom)); right: 20px; }
   .music-transport { gap: 8px; padding: 10px; }
   .music-small-cover { width: 36px; height: 36px; flex-basis: 36px; }

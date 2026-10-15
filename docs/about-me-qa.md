@@ -35,3 +35,12 @@ TypeScript 与 Next.js 生产构建通过，普通预览标签页无浏览器 er
 - [五行弹窗](qa/about-five-elements.png)
 
 本轮测试覆盖本地桌面浏览器的响应式视口；真实 iOS / Android / Safari 与公网托管环境尚未验收。
+
+## 2026-10-15：荣誉、奖项与认证
+
+- 在 About Me 页尾、返回首页链接前加入用户提供的 11 个条目，分为荣誉奖项 6 项、研究认证 3 项、音乐与美术 2 项。
+- FTC 条目明确标注团队奖项，并保留 2024 年 Miami University 第三名、2025 年 Cincinnati Walnut Hills 第二名，两次均为 Inspire Award。
+- 核对全部名称与年份；保留 Director’s List 前 10% GPA 说明、NHS 评选条件、China Conservatory of Music 机构署名。CITI 认证独立分组。
+- 本地生产构建通过（含 TypeScript）；实际浏览器检查 1280px 和 320px，手机页面 clientWidth / scrollWidth 均为 305px，所有条目无内部横向溢出。
+- 手机长标题、FTC 两条成绩、认证和艺术条目均完整换行；浏览器无 error 级别日志。没有新增运行时依赖。
+- 截图：`qa/about-honors-desktop.png`、`qa/about-honors-mobile.png`、`qa/about-honors-mobile-certifications.png`。

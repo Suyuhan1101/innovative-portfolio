@@ -24,3 +24,64 @@ export const aboutMedia = {
   fiveElements: "/media/about-me/five-elements-reference.png",
   ev3: "/media/about-me/ev3-sumo-reference.png",
 } as const;
+
+type AboutHonor = {
+  title: string;
+  years: string;
+  description?: string;
+  results?: string[];
+};
+
+type AboutHonorGroup = {
+  id: string;
+  title: string;
+  entries: AboutHonor[];
+};
+
+export const aboutHonors: AboutHonorGroup[] = [
+  {
+    id: "awards",
+    title: "Honors & awards",
+    entries: [
+      {
+        title: "FTC Robotics — Summit Knights 14365",
+        years: "2024–2025",
+        description: "Team awards at Ohio FTC State Championship qualifiers.",
+        results: [
+          "OH Miami University Qualifier 2024 — Inspire Award, 3rd Place",
+          "Cincinnati Walnut Hills Qualifier 2025 — Inspire Award, 2nd Place",
+        ],
+      },
+      {
+        title: "Director’s List with High Honors",
+        years: "2024–2025",
+        description: "Awarded to the top 10% of students by GPA.",
+      },
+      { title: "USA Computing Olympiad (USACO) — Silver Award", years: "2026" },
+      { title: "Conrad Challenge — Innovator Award", years: "2026" },
+      {
+        title: "National Honor Society",
+        years: "2026",
+        description: "Recognized for high GPA, leadership, service and character.",
+      },
+      { title: "AP Scholar with Distinction", years: "2026" },
+    ],
+  },
+  {
+    id: "research-certifications",
+    title: "Research certifications",
+    entries: [
+      { title: "Good Clinical Practice", years: "2026", description: "CITI Program certification" },
+      { title: "Human Subjects Research", years: "2026", description: "CITI Program certification" },
+      { title: "Clinical Research Coordinator Foundations", years: "2026", description: "CITI certificate" },
+    ],
+  },
+  {
+    id: "music-and-arts",
+    title: "Music & arts",
+    entries: [
+      { title: "Grade 8 Piano", years: "2023", description: "China Conservatory of Music" },
+      { title: "Grade 4 Award in Chinese Landscape Painting", years: "2023" },
+    ],
+  },
+];

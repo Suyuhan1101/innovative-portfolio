@@ -6,7 +6,7 @@ export const sections = [
   { id: "projects", title: "Projects", intro: "Research, software and experiments.", paragraphs: [], pending: "" },
   { id: "skills", title: "Skills", intro: "Learning by making things.", paragraphs: [], pending: "" },
   { id: "gallery", title: "Gallery", intro: "Through my lens.", paragraphs: [], pending: "" },
-  { id: "music", title: "Music", intro: "Playing, listening and learning.", paragraphs: [], pending: "" },
+  { id: "hobby", title: "Hobby", intro: "Music, robotics and LEGO.", paragraphs: [], pending: "" },
   { id: "community", title: "Community", intro: "People, connection and shared experiences.", paragraphs: [], pending: "" },
 ] as const;
 

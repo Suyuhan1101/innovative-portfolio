@@ -331,3 +331,15 @@ final result: passed
 - 本地应用 error 日志为空。生产构建通过 TypeScript 和 16 页生成。浏览器记录：docs/qa/production-motion-checks.json；移动端截图：docs/qa/motion-settings-mobile.png。
 
 final result: passed (local production build)
+
+# 2026-10-15 Music 改为 Hobby，加入机器人与 LEGO
+
+- 首页、菜单、栏目标题、图标、About Me 链接和页面 metadata 统一更新为 Hobby，正式路径为 /hobby；原 /music 永久重定向到 /hobby。Music 作为 Hobby 内的默认分类保留。
+- 新增 Robotics 和 LEGO 分类：一个横屏比赛录像，以及两个竖屏 LEGO 视频。横屏按 960:544 显示；竖屏各按原始比例呈现，桌面并排、手机堆叠，不裁剪画面。
+- 三个网页 MP4 均移除音轨及原有元数据，采用 H.264 视频流复制和 faststart。原始文件校验未变化，完整解码后分别核对 778、4766、300 帧，所有帧与原件相同；音频流数量均为 0。媒体清单见 docs/media/hobby-videos.json。
+- 在 next build + next start 下实际播放三段视频，duration 为 25.933333、176.518519、10 秒，均 muted=true、error=null、currentTime 前进。开始第二段 LEGO 视频后，第一段 paused=true；退出分类或页面后移除对应视频。
+- 原有 Luv Letter 可以在切换分类后继续播放，并可与无声 LEGO 视频同时运行；键盘 Enter 可启动视频并将焦点交给 VIDEO。钢琴视频及音乐列表仍显示。
+- 320px 小屏实测 clientWidth/scrollWidth 均为 305px，三个分类按钮处于同一行；竖屏视频宽 265px，保持原比例。首页和菜单的 Hobby 链接均指向 /hobby，没有旧 Music 方块。
+- 应用 error 日志为空。npm run build 通过 TypeScript 和 16 页生成；git diff --check 通过。证据：docs/qa/hobby-checks.json、hobby-robotics-desktop.png、hobby-lego-desktop.png、hobby-lego-mobile.png。
+
+final result: passed (local production build)

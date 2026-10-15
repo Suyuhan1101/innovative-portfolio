@@ -31,7 +31,7 @@ export default function AboutPage({ onNavigate, onHome, onGraphic }: Props) {
       <figure className="about-robot" data-reveal><Image src={aboutMedia.ev3} alt="Reference example of a LEGO EV3 sumo robot" width={1280} height={960} sizes="(max-width: 900px) 80vw, 360px" /><figcaption>LEGO EV3 sumo robot · reference image</figcaption></figure>
     </section>
     <section className="about-outside">
-      <div className="about-outside-copy"><h2 data-reveal>Outside the screen.</h2>{aboutMe.outside.map((text) => <RevealText text={text} key={text} />)}<div className="about-links" data-reveal>{linkTo("music", "More music")}{linkTo("community", "Community")}</div></div>
+      <div className="about-outside-copy"><h2 data-reveal>Outside the screen.</h2>{aboutMe.outside.map((text) => <RevealText text={text} key={text} />)}<div className="about-links" data-reveal>{linkTo("hobby", "Explore my hobbies")}{linkTo("community", "Community")}</div></div>
       <figure className="about-travel" data-reveal><Image src={slides[0].src} alt={slides[0].alt} width={slides[0].width} height={slides[0].height} sizes="(max-width: 900px) 90vw, 420px" /><figcaption>High places, a different perspective.</figcaption></figure>
     </section>
     <a href="/" className="text-link back-home" data-reveal onClick={(event) => { if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; event.preventDefault(); onHome(event.currentTarget); }}>Back to my world <ArrowRightIcon size={23} weight="light" /></a>

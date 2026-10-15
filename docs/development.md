@@ -33,12 +33,15 @@ npm start
 | `public/media/home-gallery/manifest.json` | 文件名、原生尺寸、裁剪范围与完整显示的比例例外。 |
 | `components/HomePage.tsx` | 首页标题、代表项目、轮播和七个入口。 |
 | `components/HomeHeading.tsx` | 首页与 Home 转场共用的标题，确保字体和换行一致。 |
+| `components/HobbyPage.tsx`、`content/hobby.ts` | Hobby 的音乐、机器人和 LEGO 分类，以及三段无声视频。音乐内容继续由 MusicPage 维护。 |
 | `components/Tile.tsx` | 方块图标、名称和箭头，以及保持对比度的反转色视觉层。 |
 | `components/SectionPage.tsx` | 各栏目内容与媒体布局。 |
 | `components/PortfolioShell.tsx` | 持久页眉、开场、导航、菜单、联系方式和图片弹窗。 |
 | `app/portfolio.css`、`app/globals.css` | 共享布局、响应式断点、颜色和字体规则。 |
 
-独立栏目路由为 `/about-me`、`/academic`、`/projects`、`/skills`、`/gallery`、`/music`、`/community`；首页为 `/`。`/travel` 永久重定向至 `/community`。Projects 和 Community 各有三个独立详情网址，入口数据在 `content/case-studies.ts`。页面刷新可以直接进入相应栏目或详情，站内导航保留已进入状态。
+独立栏目路由为 `/about-me`、`/academic`、`/projects`、`/skills`、`/gallery`、`/hobby`、`/community`；首页为 `/`。`/travel` 永久重定向至 `/community`，原 `/music` 永久重定向至 `/hobby`。Projects 和 Community 各有三个独立详情网址，入口数据在 `content/case-studies.ts`。页面刷新可以直接进入相应栏目或详情，站内导航保留已进入状态。
+
+Hobby 默认显示 Music，保留钢琴视频、播放列表和共享播放器。Robotics 显示比赛录像，LEGO 显示机械臂与行走机器人；视频按原比例排列，手机上竖屏视频逐个显示。新视频的音轨已从文件中移除，原件保存在忽略的 `assets/originals/hobby`；`scripts/prepare-hobby-videos.py` 可重新生成无声 MP4 和封面并逐帧验证，结果见 `docs/media/hobby-videos.json`。视频按需加载，切换分类或离开页面会卸载并停止播放。
 
 原图备份在 `assets/originals/home-gallery`。`scripts/prepare-home-gallery.ps1` 只做原生像素裁剪并核对像素，不改变原图尺寸。现有素材已经准备完成，通常无需重跑。页面通过 Next Image 生成浏览器所需的显示版本，项目中的原图和裁剪图保持原始像素。
 

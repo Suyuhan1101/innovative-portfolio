@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRightIcon, ArrowUpRightIcon, ArrowsOutSimpleIcon, PauseIcon, PlayIcon, XIcon } from "@phosphor-icons/react";
+import { ArrowUpRightIcon, ArrowsOutSimpleIcon, PauseIcon, PlayIcon, XIcon } from "@phosphor-icons/react";
 import { musicPage } from "@/content/music";
 import { musicTracks } from "@/content/music-tracks";
 import { slides } from "@/content/media";
@@ -11,7 +11,7 @@ import { MusicPlayer, timeLabel } from "./MusicPlayer";
 import RevealText from "./RevealText";
 import styles from "./MusicPage.module.css";
 
-type Props = { onHome: (element: HTMLElement) => void; onPhoto: (index: number) => void };
+type Props = { onPhoto: (index: number) => void };
 
 function Performances() {
   const music = useMusic();
@@ -69,7 +69,7 @@ function Playlist() {
   </section>;
 }
 
-export default function MusicPage({ onHome, onPhoto }: Props) {
+export default function MusicPage({ onPhoto }: Props) {
   const concertIndex = slides.findIndex((slide) => slide.name === "04-orchestra");
   const concert = slides[concertIndex];
   return <div className={styles.content}>
@@ -95,10 +95,5 @@ export default function MusicPage({ onHome, onPhoto }: Props) {
       <div><h2 id="music-concert-title" data-reveal>An evening of live music</h2><RevealText text={musicPage.concert} /></div>
       <figure data-reveal><button type="button" className={styles.concertImage} aria-label="Open photograph of my friend's symphonic concert" onClick={() => onPhoto(concertIndex)}><Image src={concert.src} alt={concert.alt} width={concert.width} height={concert.height} sizes="(max-width: 700px) 90vw, 48vw" /><span><ArrowsOutSimpleIcon size={19} weight="light" aria-hidden="true" />View full size</span></button></figure>
     </section>
-
-    <a href="/" className={`text-link back-home ${styles.backHome}`} data-reveal onClick={(event) => {
-      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      event.preventDefault(); onHome(event.currentTarget);
-    }}>Back to my world<ArrowRightIcon size={23} weight="light" aria-hidden="true" /></a>
   </div>;
 }

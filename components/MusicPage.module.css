@@ -52,7 +52,6 @@
 .concertImage img { display: block; width: 100%; height: auto; }
 .concertImage > span { display: flex; gap: 8px; align-items: center; padding-top: 10px; color: var(--green); font-size: var(--text-small); }
 .concertImage:hover > span { color: var(--accent); }
-.backHome { margin-top: 32px; }
 @media (max-width: 1000px) {
   .introduction { gap: 30px; }
   .instruments { padding-left: 22px; }

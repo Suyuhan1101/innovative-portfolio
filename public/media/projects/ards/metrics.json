@@ -1,0 +1,17 @@
+{
+  "scope": "Report-level ARDS chest imaging criterion classification",
+  "run": "Selected Stage II run, labeled Test 3 in the poster and comparison figures",
+  "reference": "LLM judge labels",
+  "totalReportsJudged": 1997,
+  "binaryEvaluableReports": 1984,
+  "excludedUncertainReports": 13,
+  "truePositive": 341,
+  "falsePositive": 36,
+  "falseNegative": 71,
+  "trueNegative": 1536,
+  "accuracyPercent": 94.61,
+  "precisionPercent": 90.45,
+  "recallPercent": 82.77,
+  "f1Percent": 86.44,
+  "note": "Metrics recomputed from saved report-level judgments. Uncertain judge labels are excluded. Clinician validation remains future work. Different version runs evaluated different numbers of reports."
+}

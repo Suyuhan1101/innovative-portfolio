@@ -1,0 +1,154 @@
+{
+  "images": [
+    {
+      "id": "01-snow-trail",
+      "src": "/media/gallery/01-snow-trail.jpg",
+      "width": 1694,
+      "height": 1279
+    },
+    {
+      "id": "02-mushrooms",
+      "src": "/media/gallery/02-mushrooms.jpg",
+      "width": 1706,
+      "height": 1279
+    },
+    {
+      "id": "03-lotus-wall",
+      "src": "/media/gallery/03-lotus-wall.jpg",
+      "width": 1706,
+      "height": 1279
+    },
+    {
+      "id": "04-dragon-boats",
+      "src": "/media/gallery/04-dragon-boats.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "05-campus-clock",
+      "src": "/media/gallery/05-campus-clock.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "06-pavilion",
+      "src": "/media/gallery/06-pavilion.jpg",
+      "width": 1706,
+      "height": 1279
+    },
+    {
+      "id": "07-fireworks",
+      "src": "/media/gallery/07-fireworks.jpg",
+      "width": 2275,
+      "height": 1279
+    },
+    {
+      "id": "08-mountain-reflection",
+      "src": "/media/gallery/08-mountain-reflection.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "09-clouded-peaks",
+      "src": "/media/gallery/09-clouded-peaks.jpg",
+      "width": 1531,
+      "height": 1279
+    },
+    {
+      "id": "10-river-plain",
+      "src": "/media/gallery/10-river-plain.jpg",
+      "width": 1706,
+      "height": 1279
+    },
+    {
+      "id": "11-glacier",
+      "src": "/media/gallery/11-glacier.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "12-snow-mountain-sky",
+      "src": "/media/gallery/12-snow-mountain-sky.jpg",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "13-red-canyon",
+      "src": "/media/gallery/13-red-canyon.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "14-mountain-river",
+      "src": "/media/gallery/14-mountain-river.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "15-alpine-forest",
+      "src": "/media/gallery/15-alpine-forest.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "16-waterfall",
+      "src": "/media/gallery/16-waterfall.jpg",
+      "width": 480,
+      "height": 640
+    },
+    {
+      "id": "17-yurt-hillside",
+      "src": "/media/gallery/17-yurt-hillside.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "18-alpine-valley",
+      "src": "/media/gallery/18-alpine-valley.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "19-eroded-canyon",
+      "src": "/media/gallery/19-eroded-canyon.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "20-lakeside-path",
+      "src": "/media/gallery/20-lakeside-path.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "21-lake-mountain",
+      "src": "/media/gallery/21-lake-mountain.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "22-high-view",
+      "src": "/media/gallery/22-high-view.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "23-miami-waves",
+      "src": "/media/gallery/23-miami-waves.jpg",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "id": "24-harbor-palms",
+      "src": "/media/gallery/24-harbor-palms.jpg",
+      "width": 1706,
+      "height": 1279
+    },
+    {
+      "id": "25-flamingos",
+      "src": "/media/gallery/25-flamingos.jpg",
+      "width": 1279,
+      "height": 1706
+    }
+  ]
+}

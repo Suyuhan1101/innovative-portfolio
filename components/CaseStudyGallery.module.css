@@ -1,0 +1,33 @@
+.browser { min-width: 0; }
+.banner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 22px; border-left: 12px solid color-mix(in srgb, var(--green), var(--paper) 22%); background: var(--green); color: var(--paper); margin-bottom: 32px; }
+.banner h2 { min-width: 0; margin: 0; font: 400 clamp(1.5rem, 2.7vw, 2rem)/1.2 var(--font-display), Georgia, serif; letter-spacing: -.02em; }
+.banner svg { flex-shrink: 0; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 28px 32px; aspect-ratio: 2.08 / 1; }
+.card { position: relative; display: block; min-width: 0; min-height: 0; padding: 0; border: 5px solid var(--green); background: #ecece8; color: var(--ink); overflow: hidden; text-align: left; text-decoration: none; isolation: isolate; }
+.card[data-featured="true"] { grid-row: span 2; }
+.cardImage { filter: grayscale(1); opacity: .66; transition: filter .25s ease, opacity .25s ease; }
+.wash { position: absolute; inset: 0; overflow: hidden; background: rgb(250 249 244 / .55); pointer-events: none; }
+.wash::after { content: ""; position: absolute; inset: 0; background: var(--green); transform: scaleX(0); transform-origin: left center; transition: transform .55s cubic-bezier(.22, 1, .36, 1); }
+.cardCopy { position: absolute; inset: auto 20px 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.cardTitle { max-width: 26ch; font: 600 clamp(1.25rem, 2vw, 1.875rem)/1.08 var(--font-sans), Arial, sans-serif; letter-spacing: -.035em; text-wrap: balance; transition: color .25s ease; }
+.action { display: inline-flex; align-items: center; gap: 0; transition: background .25s ease, color .25s ease, gap .25s ease; min-height: 44px; padding: 10px 16px; background: var(--green); color: var(--paper); font-size: var(--text-small); font-weight: 600; line-height: 1.25; }
+.card:hover .wash::after, .card:focus-visible .wash::after { transform: scaleX(1); }
+.card:hover .cardTitle, .card:focus-visible .cardTitle { color: var(--paper); }
+.card:hover .action, .card:focus-visible .action { background: var(--paper); color: var(--green); gap: 10px; }
+.action svg { width: 0; opacity: 0; transition: width .25s ease, opacity .25s ease; }
+.card:hover .action svg, .card:focus-visible .action svg { width: 18px; opacity: 1; }
+@media (max-width: 1000px) and (min-width: 701px) {
+  .grid { aspect-ratio: 1.8 / 1; gap: 22px; }
+  .cardCopy { inset: auto 14px 14px; gap: 10px; }
+  .cardTitle { font-size: clamp(1.125rem, 2.3vw, 1.5rem); }
+}
+@media (max-width: 700px) {
+  .banner { padding: 13px 16px; border-left-width: 8px; margin-bottom: 24px; }
+  .banner h2 { font-size: 1.5rem; }
+  .grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; aspect-ratio: auto; gap: 22px; }
+  .card, .card[data-featured="true"] { grid-row: auto; width: 100%; aspect-ratio: 1.35 / 1; min-height: 230px; border-width: 4px; }
+  .cardCopy { inset: auto 16px 16px; gap: 12px; }
+  .cardTitle { font-size: clamp(1.25rem, 5vw, 1.75rem); }
+}
+/* PortfolioShell resolves the system preference and the explicit motion setting. */
+:global(.portfolio[data-motion="reduced"]) .card *, :global(.portfolio[data-motion="reduced"]) .wash::after { transition: none; }

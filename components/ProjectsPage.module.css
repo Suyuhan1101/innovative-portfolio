@@ -1,0 +1,80 @@
+.content { font-size: var(--text-body); line-height: 1.65; }
+.caseStudy { min-width: 0; }
+.hero { max-width: 850px; margin: 0 auto 34px; }
+.hero .detailFigure { margin-top: 0; }
+.caseOverview { max-width: 78ch; }
+.caseOverview > div, .caseCopy { min-width: 0; }
+.preview > a { display: grid; place-items: center; padding: 12px; background: #f0efe7; aspect-ratio: 16 / 10; }
+.preview img { display: block; max-height: 100%; width: 100%; height: auto; object-fit: contain; }
+.preview figcaption, .detailFigure figcaption { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: var(--text-small); line-height: 1.5; margin-top: 10px; }
+.preview figcaption a, .detailFigure figcaption a { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex: 0 0 28px; color: var(--green); }
+.projectMeta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: var(--text-small); margin-bottom: 12px; }
+.status { color: var(--green); font-size: var(--text-small); display: inline-flex; align-items: center; gap: 8px; }
+.status::before { content: ""; display: block; width: 6px; height: 6px; flex: 0 0 6px; border: 1px solid currentColor; border-radius: 50%; }
+.caseCopy h2, .additional > h2 { font: 400 clamp(1.75rem, calc(1.2rem + 1.2vw), 2.5rem)/1.15 var(--font-display), Georgia, serif; letter-spacing: -.025em; margin: 0 0 12px; text-wrap: balance; }
+.context, .role, .dates { color: var(--muted); font-size: var(--text-small); line-height: 1.5; }
+.context { margin-bottom: 5px; }
+.role { margin-bottom: 17px; }
+.technologies { display: flex; flex-wrap: wrap; gap: 5px 14px; padding: 0; margin: 16px 0 0; list-style: none; color: var(--green); font-size: var(--text-small); line-height: 1.6; }
+.technologies li { border-bottom: 1px solid var(--rule); }
+.caseDetails { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--rule); }
+.detailText { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 26px 40px; }
+.detailText > section { min-width: 0; }
+.detailText > section:first-child { grid-row: span 2; }
+.detailText h3 { font: 400 clamp(1.375rem, calc(1rem + .6vw), 1.75rem)/1.2 var(--font-display), Georgia, serif; margin: 0 0 15px; }
+.detailText p { margin: 0 0 17px; }
+.detailText p:last-child { margin-bottom: 0; }
+.evaluation { border-top: 1px solid var(--rule); margin-top: 28px; padding-top: 22px; }
+.evaluation table { border-collapse: collapse; width: 100%; max-width: 620px; font-size: var(--text-small); text-align: left; }
+.evaluation caption { text-align: left; font-weight: 550; margin-bottom: 14px; }
+.evaluation th, .evaluation td { padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.evaluation th { font-weight: 500; }
+.evaluation td { text-align: right; font-variant-numeric: tabular-nums; color: var(--green); }
+.evaluation thead th:last-child { text-align: right; }
+.evaluation > p { margin-top: 12px; font-size: var(--text-small); color: var(--muted); }
+.detailFigure { margin-top: 28px; }
+.detailFigure img { display: block; width: 100%; height: auto; background: white; }
+.artifactLinks { display: flex; flex-wrap: wrap; gap: 15px 28px; margin-top: 24px; }
+.artifactLinks > a, .posterButton { gap: 8px; }
+.posterButton { background: transparent; }
+.presentation { max-width: 800px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--rule); }
+.presentationHeader { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.presentationHeader h3 { font: 400 clamp(1.375rem, calc(1rem + .6vw), 1.75rem)/1.2 var(--font-display), Georgia, serif; margin: 0 0 7px; }
+.presentationHeader p { color: var(--muted); font-size: var(--text-small); line-height: 1.5; }
+.presentationHeader > button { flex-shrink: 0; margin-top: -6px; }
+.presentationFrame { position: relative; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; background: var(--ink); }
+.presentationFrame iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; }
+.presentationFrame iframe:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.presentationCover { position: absolute; inset: 0; display: block; width: 100%; height: 100%; padding: 0; background: transparent; color: var(--paper); }
+.presentationCover img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.presentationPlay { position: absolute; left: calc(50% - 26px); top: calc(50% - 26px); display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: var(--green); box-shadow: 0 2px 14px rgb(0 0 0 / .14); }
+.presentationCover:hover .presentationPlay, .presentationCover:focus-visible .presentationPlay { background: var(--accent); }
+.presentationWatch { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: rgb(17 20 28 / .8); color: var(--paper); padding: 4px 12px; font-size: .8125rem; white-space: nowrap; }
+.additional { border-top: 1px solid var(--rule); padding-top: 34px; margin-top: 36px; }
+.additional > h2 { margin-bottom: 28px; }
+.additionalGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.smallProject { min-width: 0; border-top: 2px solid var(--green); padding-top: 18px; }
+.smallProject h3 { font: 400 clamp(1.375rem, calc(1rem + .6vw), 1.75rem)/1.2 var(--font-display), Georgia, serif; letter-spacing: -.02em; margin: 12px 0; text-wrap: balance; }
+.smallProject .role { margin-bottom: 5px; }
+.smallProject .dates { margin-bottom: 18px; }
+.smallProject :global(.text-link) { margin-top: 20px; font-size: var(--text-small); gap: 8px; }
+.backHome { margin-top: 36px; }
+@media (max-width: 1050px) {
+  .additionalGrid { grid-template-columns: 1fr; gap: 30px; }
+  .smallProject { max-width: 68ch; }
+}
+@media (max-width: 900px) {
+  .caseOverview { grid-template-columns: 1fr; gap: 24px; }
+  .preview { max-width: 620px; width: 100%; }
+  .preview > a { aspect-ratio: auto; }
+  .detailText { grid-template-columns: 1fr; gap: 26px; }
+  .detailText > section:first-child { grid-row: auto; }
+}
+@media (max-width: 600px) {
+  .caseCopy h2, .additional > h2 { font-size: 1.75rem; }
+  .caseDetails { padding-top: 22px; margin-top: 22px; }
+  .projectMeta { gap: 6px 14px; }
+  .preview > a { padding: 7px; }
+  .preview figcaption, .detailFigure figcaption { font-size: .875rem; }
+  .artifactLinks { flex-direction: column; align-items: start; }
+}

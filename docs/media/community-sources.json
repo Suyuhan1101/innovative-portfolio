@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-15",
+  "images": [
+    {
+      "id": "clinic-corridor",
+      "src": "/media/community/clinic-corridor.jpg",
+      "width": 1440,
+      "height": 1080,
+      "source": "C:\\Users\\Suyuh\\AppData\\Local\\Temp\\codex-clipboard-a1caa995-5633-4e76-b574-8ebb9674e749.jpg",
+      "original": "assets/originals/community/clinic-corridor.jpg",
+      "bytes": 98693,
+      "sha256": "d16d28fb5bc9d342fdc37abe7759b212e47df416a12f8f7fd07689326481913c",
+      "hasExif": false,
+      "copyVerified": true
+    },
+    {
+      "id": "outside-clinic",
+      "src": "/media/community/outside-clinic.jpg",
+      "width": 1080,
+      "height": 1646,
+      "source": "C:\\Users\\Suyuh\\AppData\\Local\\Temp\\codex-clipboard-a42a89da-468d-4a6f-8290-d2e5fdd15ac6.jpg",
+      "original": "assets/originals/community/outside-clinic.jpg",
+      "bytes": 96546,
+      "sha256": "a52ce81b21d1a381d60e4507efaf91758a7238ab606c4be46998d00a1e7906ef",
+      "hasExif": false,
+      "copyVerified": true
+    },
+    {
+      "id": "dispensary-visit",
+      "src": "/media/community/dispensary-visit.jpg",
+      "width": 1080,
+      "height": 1620,
+      "source": "C:\\Users\\Suyuh\\AppData\\Local\\Temp\\codex-clipboard-072b839a-0571-427b-83ff-64463487036b.jpg",
+      "original": "assets/originals/community/dispensary-visit.jpg",
+      "bytes": 110785,
+      "sha256": "fcbc7e03fe0e471a2bb15347a709e67515ce0568534b3c4b01380c3bd0ca10c2",
+      "hasExif": false,
+      "copyVerified": true
+    },
+    {
+      "id": "visit-conversation",
+      "src": "/media/community/visit-conversation.jpg",
+      "width": 1440,
+      "height": 1080,
+      "source": "C:\\Users\\Suyuh\\AppData\\Local\\Temp\\codex-clipboard-d9c376e6-d0d2-4ee9-9e1c-1101890131ff.jpg",
+      "original": "assets/originals/community/visit-conversation.jpg",
+      "bytes": 146788,
+      "sha256": "8c79dcbb15e1605e1266026788f580d81b0cb90a30ca03e79bf9d3bfb358ad43",
+      "hasExif": false,
+      "copyVerified": true
+    },
+    {
+      "id": "outreach-consultation",
+      "src": "/media/community/outreach-consultation.jpg",
+      "width": 1440,
+      "height": 1080,
+      "source": "C:\\Users\\Suyuh\\AppData\\Local\\Temp\\codex-clipboard-0a3f5ecc-7c7c-4c25-9e6b-91211a437d88.jpg",
+      "original": "assets/originals/community/outreach-consultation.jpg",
+      "bytes": 104247,
+      "sha256": "3f6cb2c77f58f2a3e4a59495688e19ba5ba29c4a0eb34751d31d0f2a8b8c7035",
+      "hasExif": false,
+      "copyVerified": true
+    },
+    {
+      "id": "during-visit",
+      "src": "/media/community/during-visit.jpg",
+      "width": 1080,
+      "height": 1440,
+      "source": "C:\\Users\\Suyuh\\AppData\\Local\\Temp\\codex-clipboard-dad440f4-7fed-4848-b3e1-5ff8805cba59.jpg",
+      "original": "assets/originals/community/during-visit.jpg",
+      "bytes": 139573,
+      "sha256": "347b43ba33f8d960347c95c5dac2ff04a2bf7c88465c70c468589b2687bb9ae1",
+      "hasExif": false,
+      "copyVerified": true
+    },
+    {
+      "id": "team-in-tibet",
+      "src": "/media/community/team-in-tibet.jpg",
+      "width": 1620,
+      "height": 1080,
+      "source": "C:\\Users\\Suyuh\\AppData\\Local\\Temp\\codex-clipboard-5e8b9357-1f5f-4e0e-abbe-07091b472973.jpg",
+      "original": "assets/originals/community/team-in-tibet.jpg",
+      "bytes": 173459,
+      "sha256": "cf37fe7a28598d933a8c5e06f676a04c07aad29116e2abc60e70d632d09564d6",
+      "hasExif": false,
+      "copyVerified": true
+    }
+  ]
+}

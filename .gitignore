@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+.env*
+!.env.example
+next-env.d.ts
+# Original uploads and local visual verification stay on this computer.
+assets/originals/
+docs/qa/
+docs/design/case-study-video/
+docs/design/*.png
+docs/design/*.jpg
+docs/design/*.jpeg
+docs/design/*.webp
+.tools/

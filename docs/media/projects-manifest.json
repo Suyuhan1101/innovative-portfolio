@@ -1,0 +1,52 @@
+[
+  {
+    "Source": "D:/jcya(demo)/output/system-showcase/01-dashboard.png",
+    "File": "public/media/projects/clinic/overview.png",
+    "Width": 1600,
+    "Height": 900,
+    "Bytes": 153190,
+    "Purpose": "Empty-data clinic dashboard screenshot",
+    "SHA256": "9800F75E7619133B19FD32A8A3D8666BF09BFB60A24B2EBCD972C36C1756142E",
+    "CopyVerified": true
+  },
+  {
+    "Source": "D:/jcya(demo)/output/system-showcase/02-diagnosis-prescription.png",
+    "File": "public/media/projects/clinic/prescription-form.png",
+    "Width": 1600,
+    "Height": 900,
+    "Bytes": 122313,
+    "Purpose": "Blank diagnosis and prescription form screenshot",
+    "SHA256": "F52B6FF50EC0BC9F89C773DDF38CA33782162F6AB4241595D8FE5C042446C4BC",
+    "CopyVerified": true
+  },
+  {
+    "Source": "D:/MIMIC program/outputs/poster_pipeline_end_to_end.png",
+    "File": "public/media/projects/ards/pipeline.png",
+    "Width": 3000,
+    "Height": 1350,
+    "Bytes": 210570,
+    "Purpose": "Research workflow diagram",
+    "SHA256": "8880DCA6C71AA2E6C4D2E8D9882EBB7BADB475186B98850A5A16805848982A22",
+    "CopyVerified": true
+  },
+  {
+    "Source": "D:/MIMIC program/outputs/evaluation_results_poster.png",
+    "File": "public/media/projects/ards/evaluation.png",
+    "Width": 3000,
+    "Height": 1900,
+    "Bytes": 205220,
+    "Purpose": "Saved Stage II evaluation figure; version denominators differ",
+    "SHA256": "3E4F9FB252D80CF50A37660556D679489C79404DAAF327592040387B06251764",
+    "CopyVerified": true
+  },
+  {
+    "Source": "D:/MuonLab/FrontEnd/public/images/analysis-workspace-flow.png",
+    "File": "public/media/projects/muon/workflow-concept.png",
+    "Width": 1536,
+    "Height": 1024,
+    "Bytes": 1822791,
+    "Purpose": "Concept diagram with illustrative plots and future features",
+    "SHA256": "CCF95478CBC0DDF2B572040CF6BE5B7FC3B05CBC5A047BF09A0300E8AFA3B791",
+    "CopyVerified": true
+  }
+]

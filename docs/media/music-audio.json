@@ -1,0 +1,117 @@
+[
+  {
+    "id": "luv-letter",
+    "title": "Luv Letter",
+    "artist": "DJ Okawari",
+    "source": "D:\\无损音乐\\Dj_Okawari_-_Luv_Letter.wav",
+    "original": "assets\\originals\\audio\\luv-letter.wav",
+    "source_sha256": "695c3a2287421900d836274357554625f6fb2045e760c02b87aa717f20785606",
+    "source_bytes": 47333582,
+    "playback": "public\\media\\music\\luv-letter-320.mp3",
+    "playback_sha256": "4f6ceb5f3ab31f077264cbc6d0a142fcab729bdec6d1c4cb83bc929ec363e09d",
+    "playback_bytes": 10735368,
+    "duration_seconds": 268.3297959183673,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "cover": "public\\media\\music\\luv-letter.png",
+    "cover_sha256": "64c0473149516fae6186f3ae20ed9866790723350ce2caf4930c6e4c903c3ee4",
+    "validation": {
+      "full_source_and_mp3_decode_passed": true,
+      "matching_pcm_frames": 11833344,
+      "original_hash_unchanged": true
+    }
+  },
+  {
+    "id": "ballade-pour-adeline",
+    "title": "Ballade pour Adeline",
+    "artist": "Richard Clayderman",
+    "source": "D:\\Downloads\\Ballade Pour Adeline.flac",
+    "original": "assets\\originals\\audio\\ballade-pour-adeline.flac",
+    "source_sha256": "120bfb14c374e31d604e04b96f0f21da806a81b054c0dce640ca2d554aace9dd",
+    "source_bytes": 15335772,
+    "playback": "public\\media\\music\\ballade-pour-adeline-320.mp3",
+    "playback_sha256": "6baf1e1fcbed6ebe16d6cdc6f501966578d26f490331b696efdc854efe1ade53",
+    "playback_bytes": 6321737,
+    "duration_seconds": 157.98666666666668,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "cover": "public\\media\\music\\ballade-pour-adeline.png",
+    "cover_sha256": "56065383d58d2a3daa17d9ba9bc729d0037b6becf562df4204fa3774604cc408",
+    "validation": {
+      "full_source_and_mp3_decode_passed": true,
+      "matching_pcm_frames": 6967212,
+      "original_hash_unchanged": true
+    }
+  },
+  {
+    "id": "mariage-d-amour",
+    "title": "Mariage d'Amour",
+    "artist": "Richard Clayderman",
+    "source": "D:\\Downloads\\Mariage d'Amour.flac",
+    "original": "assets\\originals\\audio\\mariage-d-amour.flac",
+    "source_sha256": "09208362ffc6791cbedd11092ffd508df339707c8b410ef363cc06f6b9b4bdf4",
+    "source_bytes": 14592536,
+    "playback": "public\\media\\music\\mariage-d-amour-320.mp3",
+    "playback_sha256": "1313a6639f7dbcb378293f7fa65fae6893975ec01336944dd4c5df58b2e5d198",
+    "playback_bytes": 6439806,
+    "duration_seconds": 160.92,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "cover": "public\\media\\music\\mariage-d-amour.png",
+    "cover_sha256": "cfce79d34cf4431ffc83405cc77980468fb79c0c11080ac6d0eecfdaccef0442",
+    "validation": {
+      "full_source_and_mp3_decode_passed": true,
+      "matching_pcm_frames": 7096572,
+      "original_hash_unchanged": true
+    }
+  },
+  {
+    "id": "senbonzakura",
+    "title": "Senbonzakura",
+    "artist": "Masque_Jupiter",
+    "source": "D:\\Downloads\\千本樱.flac",
+    "original": "assets\\originals\\audio\\senbonzakura.flac",
+    "source_sha256": "6caa90e809b51b27eeb3b44cc5dc1d918d0b573f3306f36a01a2abf7cf80795a",
+    "source_bytes": 15758772,
+    "playback": "public\\media\\music\\senbonzakura-320.mp3",
+    "playback_sha256": "04b6b9ef4f7b485f75931b8ab5d259f0c027d6f5eceb91c6754225a202424ff8",
+    "playback_bytes": 10434444,
+    "duration_seconds": 260.80002267573695,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "cover": "public\\media\\music\\senbonzakura.png",
+    "cover_sha256": "510fadf15f533e7acc8a2f7dfa50165d2b12e14e4d57abcd2a10d8f7251914ac",
+    "validation": {
+      "full_source_and_mp3_decode_passed": true,
+      "matching_pcm_frames": 11501281,
+      "original_hash_unchanged": true
+    }
+  },
+  {
+    "id": "the-battle-of-waterloo",
+    "title": "The Battle of Waterloo",
+    "artist": "Various artists",
+    "source": "D:\\Downloads\\waterloo.flac",
+    "original": "assets\\originals\\audio\\the-battle-of-waterloo.flac",
+    "source_sha256": "a2262889a9c3f9d4002142fa4c27e455a938cfaba785e1133f88c22f151d32eb",
+    "source_bytes": 18001493,
+    "playback": "public\\media\\music\\the-battle-of-waterloo-320.mp3",
+    "playback_sha256": "f66c6d6919b840ab2d091da7f17cf88d91f4cdcecd8597d02581983a99b70578",
+    "playback_bytes": 9649736,
+    "duration_seconds": 241.17333333333335,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "cover": "public\\media\\music\\the-battle-of-waterloo.png",
+    "cover_sha256": "923c254c616b336e12d0260cd28832dca0b52dbaa1d9b612e6647af92b58bf91",
+    "validation": {
+      "full_source_and_mp3_decode_passed": true,
+      "matching_pcm_frames": 10635744,
+      "original_hash_unchanged": true
+    }
+  }
+]

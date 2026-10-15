@@ -1,0 +1,60 @@
+{
+  "library": "Devicon",
+  "revision": "6a37858047b0e8d9c9c0e68f4a071fc410652e89",
+  "license": "MIT; brand marks belong to their respective owners",
+  "icons": [
+    {
+      "name": "java",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/6a37858047b0e8d9c9c0e68f4a071fc410652e89/icons/java/java-original.svg"
+    },
+    {
+      "name": "python",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/6a37858047b0e8d9c9c0e68f4a071fc410652e89/icons/python/python-original.svg"
+    },
+    {
+      "name": "react",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/6a37858047b0e8d9c9c0e68f4a071fc410652e89/icons/react/react-original.svg"
+    },
+    {
+      "name": "typescript",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/6a37858047b0e8d9c9c0e68f4a071fc410652e89/icons/typescript/typescript-original.svg"
+    },
+    {
+      "name": "postgresql",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/6a37858047b0e8d9c9c0e68f4a071fc410652e89/icons/postgresql/postgresql-original.svg"
+    },
+    {
+      "name": "supabase",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/6a37858047b0e8d9c9c0e68f4a071fc410652e89/icons/supabase/supabase-original.svg"
+    },
+    {
+      "name": "figma",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/6a37858047b0e8d9c9c0e68f4a071fc410652e89/icons/figma/figma-original.svg"
+    },
+    {
+      "name": "github",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/6a37858047b0e8d9c9c0e68f4a071fc410652e89/icons/github/github-original.svg"
+    },
+    {
+      "name": "vercel",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/6a37858047b0e8d9c9c0e68f4a071fc410652e89/icons/vercel/vercel-original.svg"
+    },
+    {
+      "name": "cloudflare",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/6a37858047b0e8d9c9c0e68f4a071fc410652e89/icons/cloudflare/cloudflare-original.svg"
+    }
+  ],
+  "additionalIcons": [
+    {
+      "name": "onshape",
+      "source": "https://cad.onshape.com/favicon.png",
+      "format": "PNG 144x144",
+      "brandGuide": "https://www.ptc.com/en/brand-guide/logos/onshape"
+    },
+    {
+      "name": "codex",
+      "source": "@phosphor-icons/react OpenAiLogoIcon",
+      "note": "Existing library OpenAI symbol, labeled Codex"
+    }
+  ]
+}

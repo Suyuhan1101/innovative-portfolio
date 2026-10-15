@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-14",
+  "status": "About Me page and shared music player implemented",
+  "images": [
+    {
+      "id": "scorpio",
+      "path": "assets/originals/about-me/scorpio-constellation.png",
+      "width": 640,
+      "height": 638,
+      "bytes": 511889,
+      "transparent": false,
+      "role": "Scorpio profile image",
+      "origin": "user-provided",
+      "source_url": null,
+      "sha256": "c6cad5d3df8630faf9472dbf0dd419fea3cbc432b4e169609cca4f6df6bf0b5e",
+      "public_src": "/media/about-me/scorpio-constellation.png"
+    },
+    {
+      "id": "ev3-reference",
+      "path": "assets/originals/about-me/ev3-sumo-reference.png",
+      "width": 1280,
+      "height": 960,
+      "bytes": 1197871,
+      "transparent": true,
+      "role": "LEGO EV3 story reference illustration",
+      "origin": "web reference supplied by user",
+      "source_url": null,
+      "sha256": "1a9d0fab058b2ef6601dd4f5962345f06f98f741449cd27daf03f9cf62aaf9de",
+      "public_src": "/media/about-me/ev3-sumo-reference.png"
+    },
+    {
+      "id": "yin-yang",
+      "path": "assets/originals/about-me/yin-yang.png",
+      "width": 250,
+      "height": 250,
+      "bytes": 26660,
+      "transparent": true,
+      "role": "Traditional symbolism supporting image",
+      "origin": "user-provided",
+      "source_url": null,
+      "sha256": "a8c1d6bd3a00599912282d277dbedc184a4b964cddaa24860cad8246ae9075c8",
+      "public_src": "/media/about-me/yin-yang.png"
+    },
+    {
+      "id": "five-elements",
+      "path": "assets/originals/about-me/five-elements-reference.png",
+      "width": 2000,
+      "height": 2000,
+      "bytes": 866181,
+      "transparent": true,
+      "role": "Five elements image for an expanded view",
+      "origin": "user-provided",
+      "source_url": null,
+      "sha256": "00241883c85abb4a3c49a376dfced9a114755cadccd3e372a3262cac7277be44",
+      "public_src": "/media/about-me/five-elements-reference.png"
+    },
+    {
+      "id": "flower-dance-cover",
+      "path": "assets/originals/about-me/flower-dance-cover.png",
+      "width": 640,
+      "height": 640,
+      "bytes": 789824,
+      "transparent": false,
+      "role": "Flower Dance music cover supplied by user",
+      "origin": "user-provided",
+      "source_url": null,
+      "sha256": "91bf35077f1100bb81e3997bcf54f9ce320deef017ad7f510dc9188818b0199f",
+      "public_src": "/media/about-me/flower-dance-cover.png"
+    }
+  ],
+  "audio": {
+    "path": "assets/originals/audio/flower-dance.wav",
+    "artist": "DJ Okawari",
+    "title": "Flower Dance",
+    "origin": "original track supplied by user; not a recording of the user",
+    "container": "WAV",
+    "encoding": "PCM",
+    "sample_rate": 44100,
+    "bits_per_sample": 16,
+    "channels": 2,
+    "duration_seconds": 265.8,
+    "bytes": 46887336,
+    "sha256": "3f19381721e141739b780fc9c4fbf2063b5db5793278af32205e4d1ca55b57af",
+    "local_only": true,
+    "git_ignored": true,
+    "public_url": null,
+    "playback_version": "mp3-320kbps",
+    "interaction": "click-to-load; manual play; preload=none; shared instance across internal routes",
+    "playback": {
+      "path": "public/media/about-me/flower-dance-320.mp3",
+      "src": "/media/about-me/flower-dance-320.mp3",
+      "mime_type": "audio/mpeg",
+      "encoding": "MP3 / LAME",
+      "bitrate": 320000,
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 265.8,
+      "bytes": 10635060,
+      "sha256": "f205098c6426301e12062b54af4e54f6815f8f89a64958cd4009e6be00a64b30",
+      "smaller_percent": 77.32,
+      "validation": {
+        "full_decode_passed": true,
+        "mpeg_header_passed": true,
+        "source_frames": 11721780,
+        "decoded_frames": 11721780,
+        "original_hash_unchanged": true
+      }
+    }
+  }
+}

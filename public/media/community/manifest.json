@@ -1,0 +1,46 @@
+{
+  "images": [
+    {
+      "id": "clinic-corridor",
+      "src": "/media/community/clinic-corridor.jpg",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "id": "outside-clinic",
+      "src": "/media/community/outside-clinic.jpg",
+      "width": 1080,
+      "height": 1646
+    },
+    {
+      "id": "dispensary-visit",
+      "src": "/media/community/dispensary-visit.jpg",
+      "width": 1080,
+      "height": 1620
+    },
+    {
+      "id": "visit-conversation",
+      "src": "/media/community/visit-conversation.jpg",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "id": "outreach-consultation",
+      "src": "/media/community/outreach-consultation.jpg",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "id": "during-visit",
+      "src": "/media/community/during-visit.jpg",
+      "width": 1080,
+      "height": 1440
+    },
+    {
+      "id": "team-in-tibet",
+      "src": "/media/community/team-in-tibet.jpg",
+      "width": 1620,
+      "height": 1080
+    }
+  ]
+}

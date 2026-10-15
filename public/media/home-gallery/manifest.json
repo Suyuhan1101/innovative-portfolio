@@ -1,0 +1,207 @@
+{
+  "prepared_on": "2026-10-14",
+  "ratio_reference": {
+    "x": 657,
+    "y": 110,
+    "height": 440,
+    "file": "docs/design/homepage-approved.png",
+    "width": 686
+  },
+  "target_aspect_ratio": 1.559090909090909,
+  "crop_tolerance": "Less than one pixel due to integer crop dimensions.",
+  "order_note": "Images are listed in playback order. Original upload_order is preserved. Food remains seventh after the six user-specified images.",
+  "images": [
+    {
+      "upload_order": 6,
+      "name": "06-snow-mountain",
+      "original": "assets/originals/home-gallery/06-snow-mountain.jpg",
+      "source_size": {
+        "width": 1708,
+        "height": 1280
+      },
+      "resized": false,
+      "reason": "User confirmed keeping both the mountain summit and the visible person in full.",
+      "mode": "original-aspect-ratio-exception",
+      "fit": "contain",
+      "crop": null,
+      "output_size": {
+        "width": 1708,
+        "height": 1280
+      },
+      "verification": {
+        "original_file_sha256_matches": true
+      },
+      "file": "/media/home-gallery/06-snow-mountain-full.jpg",
+      "playback_order": 1
+    },
+    {
+      "upload_order": 7,
+      "name": "07-tennis",
+      "original": "assets/originals/home-gallery/07-tennis.jpg",
+      "source_size": {
+        "width": 1706,
+        "height": 1279
+      },
+      "resized": false,
+      "reason": "Keep both visible players and the racket; trim empty court margins.",
+      "mode": "crop-only",
+      "fit": "cover",
+      "crop": {
+        "x": 0,
+        "y": 130,
+        "height": 1094,
+        "width": 1706
+      },
+      "output_size": {
+        "width": 1706,
+        "height": 1094
+      },
+      "verification": {
+        "pixel_sha256": "eb8aa682ccb377353aa1b00879caab882664e4edb966f12c865a161963963aac",
+        "all_crop_pixels_match": true
+      },
+      "file": "/media/home-gallery/07-tennis-cropped.png",
+      "playback_order": 2
+    },
+    {
+      "upload_order": 4,
+      "name": "04-orchestra",
+      "original": "assets/originals/home-gallery/04-orchestra.jpg",
+      "source_size": {
+        "width": 2275,
+        "height": 1279
+      },
+      "resized": false,
+      "reason": "Keep the central ensemble and the full vertical scene; trim side edges.",
+      "mode": "crop-only",
+      "fit": "cover",
+      "crop": {
+        "x": 140,
+        "y": 0,
+        "height": 1279,
+        "width": 1994
+      },
+      "output_size": {
+        "width": 1994,
+        "height": 1279
+      },
+      "verification": {
+        "pixel_sha256": "177bd34453ed0e37dc53f8af66dbb04317c4906b485bf14c7b38ae5fc811dad4",
+        "all_crop_pixels_match": true
+      },
+      "file": "/media/home-gallery/04-orchestra-cropped.png",
+      "playback_order": 3
+    },
+    {
+      "upload_order": 2,
+      "name": "02-ink-artwork",
+      "original": "assets/originals/home-gallery/02-ink-artwork.png",
+      "source_size": {
+        "width": 1706,
+        "height": 1279
+      },
+      "resized": false,
+      "reason": "Keep the complete framed artwork; remove surrounding wall.",
+      "mode": "crop-only",
+      "fit": "cover",
+      "crop": {
+        "x": 0,
+        "y": 98,
+        "height": 1094,
+        "width": 1706
+      },
+      "output_size": {
+        "width": 1706,
+        "height": 1094
+      },
+      "verification": {
+        "pixel_sha256": "de799e4b7ae917c732024a0a6b64704f5afc29cdbfb3d177cd345ff6c7085b6f",
+        "all_crop_pixels_match": true
+      },
+      "file": "/media/home-gallery/02-ink-artwork-cropped.png",
+      "playback_order": 4
+    },
+    {
+      "upload_order": 1,
+      "name": "01-ards-poster",
+      "original": "assets/originals/home-gallery/01-ards-poster.jpg",
+      "source_size": {
+        "width": 1672,
+        "height": 1228
+      },
+      "resized": false,
+      "reason": "Replacement ARDS photo: trim outer margins at native resolution, keeping the complete poster content and the previously confirmed aspect-ratio exception.",
+      "mode": "crop-only-aspect-ratio-exception",
+      "fit": "contain",
+      "crop": {
+        "x": 60,
+        "y": 35,
+        "height": 1193,
+        "width": 1550
+      },
+      "output_size": {
+        "width": 1550,
+        "height": 1193
+      },
+      "verification": {
+        "pixel_sha256": "a58aca6967efb934574203ce7a8d8fc4109c67ce0abd9d30cc8346fe3824c482",
+        "all_crop_pixels_match": true
+      },
+      "file": "/media/home-gallery/01-ards-poster-cropped.png",
+      "playback_order": 5
+    },
+    {
+      "upload_order": 3,
+      "name": "03-robotics-team",
+      "original": "assets/originals/home-gallery/03-robotics-team.png",
+      "source_size": {
+        "width": 1280,
+        "height": 1280
+      },
+      "resized": false,
+      "reason": "Keep all three faces and the robot; remove ceiling and foreground.",
+      "mode": "crop-only",
+      "fit": "cover",
+      "crop": {
+        "x": 0,
+        "y": 315,
+        "height": 821,
+        "width": 1280
+      },
+      "output_size": {
+        "width": 1280,
+        "height": 821
+      },
+      "verification": {
+        "pixel_sha256": "d3b01b9825d8697e1b6f8c0f54defe0a4f133336574404faa37c1a41a21b2f37",
+        "all_crop_pixels_match": true
+      },
+      "file": "/media/home-gallery/03-robotics-team-cropped.png",
+      "playback_order": 6
+    },
+    {
+      "upload_order": 5,
+      "name": "05-food",
+      "original": "assets/originals/home-gallery/05-food.jpg",
+      "source_size": {
+        "width": 1706,
+        "height": 1280
+      },
+      "resized": false,
+      "reason": "Additional subject-preservation exception: the fries and main dish exceed the target crop height.",
+      "mode": "original-aspect-ratio-exception",
+      "fit": "contain",
+      "crop": null,
+      "output_size": {
+        "width": 1706,
+        "height": 1280
+      },
+      "verification": {
+        "original_file_sha256_matches": true
+      },
+      "file": "/media/home-gallery/05-food-full.jpg",
+      "playback_order": 7
+    }
+  ],
+  "playback_order_source": "public/media/home-gallery/playback-order.json"
+}

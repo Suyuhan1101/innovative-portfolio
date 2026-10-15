@@ -332,6 +332,18 @@ final result: passed
 
 final result: passed (local production build)
 
+# 2026-10-15 Gallery 追加 18 张照片与瀑布视频
+
+- 按用户要求全部纳入 Gallery，原 25 张照片和实习视频保留，现共 43 张照片、2 个视频。新增 Everyday moments 分类；各分类计数为 Landscapes 28、Places & culture 11、Everyday moments 2、Small details 2。
+- 新照片保留原始尺寸与压缩图像数据，仅移除附加元数据；完整解码后的像素与原件一致。原始文件单独备份，媒体校验报告在 docs/media/gallery-additions.json。
+- 瀑布视频沿用上一轮无声偏好，复制 H.264 视频流、移除音轨，完整核对 1714 帧，所有画面与原件一致；网页实测 duration=57.133333、muted=true、error=null，currentTime 正常前进。
+- 通过 Everyday moments 筛选打开课堂照片，方向键切换到咖啡馆，计数从 1/2 到 2/2；Escape 关闭后焦点恢复。手机打开新增石拱照片，正确显示 18/43，完整画面无变形。
+- 播放旧实习视频时，新瀑布视频 paused=true，实习视频继续正常播放；离开 Gallery 后两个 video 都被卸载。视频索引为 Watch videos (2)，原实习视频锚点保留。
+- 最终 320px 实测页面 clientWidth/scrollWidth 均为 305px，43 张照片全部存在；手机分类单行滚动区域高度 65px，键盘能选择未初始显示的分类。临时视口已恢复。
+- 最终 npm run build 通过 TypeScript 与 16 页生成。截图见 docs/qa/gallery-additions-desktop.png、gallery-additions-mobile-final.png、gallery-new-photo-mobile.png；视频与照片校验结果均通过。
+
+final result: passed (local production build)
+
 # 2026-10-15 Music 改为 Hobby，加入机器人与 LEGO
 
 - 首页、菜单、栏目标题、图标、About Me 链接和页面 metadata 统一更新为 Hobby，正式路径为 /hobby；原 /music 永久重定向到 /hobby。Music 作为 Hobby 内的默认分类保留。

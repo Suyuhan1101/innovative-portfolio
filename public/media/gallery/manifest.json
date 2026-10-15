@@ -149,6 +149,114 @@
       "src": "/media/gallery/25-flamingos.jpg",
       "width": 1279,
       "height": 1706
+    },
+    {
+      "id": "26-classroom-cards",
+      "src": "/media/gallery/26-classroom-cards.jpg",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "id": "27-desert-tree",
+      "src": "/media/gallery/27-desert-tree.jpg",
+      "width": 3060,
+      "height": 4080
+    },
+    {
+      "id": "28-lake-reflections",
+      "src": "/media/gallery/28-lake-reflections.jpg",
+      "width": 4608,
+      "height": 3456
+    },
+    {
+      "id": "29-lake-shore",
+      "src": "/media/gallery/29-lake-shore.jpg",
+      "width": 1707,
+      "height": 1280
+    },
+    {
+      "id": "30-turquoise-lake",
+      "src": "/media/gallery/30-turquoise-lake.jpg",
+      "width": 4080,
+      "height": 3060
+    },
+    {
+      "id": "31-rock-window",
+      "src": "/media/gallery/31-rock-window.jpg",
+      "width": 3000,
+      "height": 4000
+    },
+    {
+      "id": "32-temple-lanterns",
+      "src": "/media/gallery/32-temple-lanterns.jpg",
+      "width": 4080,
+      "height": 3060
+    },
+    {
+      "id": "33-bookshop-aisle",
+      "src": "/media/gallery/33-bookshop-aisle.jpg",
+      "width": 1280,
+      "height": 1707
+    },
+    {
+      "id": "34-reflecting-pool",
+      "src": "/media/gallery/34-reflecting-pool.jpg",
+      "width": 1280,
+      "height": 1707
+    },
+    {
+      "id": "35-stone-passage",
+      "src": "/media/gallery/35-stone-passage.jpg",
+      "width": 1280,
+      "height": 1707
+    },
+    {
+      "id": "36-library-steps",
+      "src": "/media/gallery/36-library-steps.jpg",
+      "width": 1280,
+      "height": 1707
+    },
+    {
+      "id": "37-beach-walk",
+      "src": "/media/gallery/37-beach-walk.jpg",
+      "width": 1707,
+      "height": 1280
+    },
+    {
+      "id": "38-cafe-interior",
+      "src": "/media/gallery/38-cafe-interior.jpg",
+      "width": 1707,
+      "height": 1280
+    },
+    {
+      "id": "39-wetland-airboat",
+      "src": "/media/gallery/39-wetland-airboat.jpg",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "id": "40-canyon-bridge",
+      "src": "/media/gallery/40-canyon-bridge.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "41-green-valley",
+      "src": "/media/gallery/41-green-valley.jpg",
+      "width": 1707,
+      "height": 1280
+    },
+    {
+      "id": "42-mountain-portrait",
+      "src": "/media/gallery/42-mountain-portrait.jpg",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "43-stone-arch",
+      "src": "/media/gallery/43-stone-arch.jpg",
+      "width": 1280,
+      "height": 1707
     }
   ]
 }

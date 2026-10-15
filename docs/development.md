@@ -34,6 +34,7 @@ npm start
 | `components/HomePage.tsx` | 首页标题、代表项目、轮播和七个入口。 |
 | `components/HomeHeading.tsx` | 首页与 Home 转场共用的标题，确保字体和换行一致。 |
 | `components/HobbyPage.tsx`、`content/hobby.ts` | Hobby 的音乐、机器人和 LEGO 分类，以及三段无声视频。音乐内容继续由 MusicPage 维护。 |
+| `components/GalleryPage.tsx`、`content/gallery.ts` | 43 张照片、分类筛选与两段站内视频；素材尺寸由 public/media/gallery/manifest.json 管理。 |
 | `components/Tile.tsx` | 方块图标、名称和箭头，以及保持对比度的反转色视觉层。 |
 | `components/SectionPage.tsx` | 各栏目内容与媒体布局。 |
 | `components/PortfolioShell.tsx` | 持久页眉、开场、导航、菜单、联系方式和图片弹窗。 |

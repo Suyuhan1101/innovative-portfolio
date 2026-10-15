@@ -1,0 +1,193 @@
+{
+  "photos": [
+    {
+      "id": "26-classroom-cards",
+      "src": "/media/gallery/26-classroom-cards.jpg",
+      "width": 960,
+      "height": 1280,
+      "source_sha256": "d54523b826a80ee73f1a285d3e8c523d4933b8f89633b681ce15a3985a1e0076",
+      "web_sha256": "d54523b826a80ee73f1a285d3e8c523d4933b8f89633b681ce15a3985a1e0076",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "27-desert-tree",
+      "src": "/media/gallery/27-desert-tree.jpg",
+      "width": 3060,
+      "height": 4080,
+      "source_sha256": "61b396a8a93f129393727de5b49965021ddde12b064c486c5716a86cdb2504e6",
+      "web_sha256": "e3dff553d0db2ce08980f2c01f7e69a09247ebc680b678b0736af293fb5d2954",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "28-lake-reflections",
+      "src": "/media/gallery/28-lake-reflections.jpg",
+      "width": 4608,
+      "height": 3456,
+      "source_sha256": "a32bb4d325df43280b8cd766e3b16be91bcdea02c2978595b1398fd45ef0de1f",
+      "web_sha256": "a36698714fc372baf9a4de75328be4b11ab95e87caff5d8e85fc1d4844dcf853",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "29-lake-shore",
+      "src": "/media/gallery/29-lake-shore.jpg",
+      "width": 1707,
+      "height": 1280,
+      "source_sha256": "021f4b46fba4da8a6dd838cde972f90367856b0e5470a836bcf296e75dced14a",
+      "web_sha256": "021f4b46fba4da8a6dd838cde972f90367856b0e5470a836bcf296e75dced14a",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "30-turquoise-lake",
+      "src": "/media/gallery/30-turquoise-lake.jpg",
+      "width": 4080,
+      "height": 3060,
+      "source_sha256": "62aee503568b0ea9b14fc07415cf7dfa925a445588eb345b450413c7eac242dd",
+      "web_sha256": "2941f9836ddaa2f79a99c06280736c20f4b3d86bc4a5dbc2cf1c4fac634610e3",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "31-rock-window",
+      "src": "/media/gallery/31-rock-window.jpg",
+      "width": 3000,
+      "height": 4000,
+      "source_sha256": "56eae5a2194ad462778a8e4258f7cabf80b250875d66bfe05028993b27d41de9",
+      "web_sha256": "af68457f256a0651c23275c73355929043152d0b5d3ee8697167e236dd58c1c5",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "32-temple-lanterns",
+      "src": "/media/gallery/32-temple-lanterns.jpg",
+      "width": 4080,
+      "height": 3060,
+      "source_sha256": "5f8be3eccb13654daa9139e9b96949358abcebb52fdda8009456bc694efe129c",
+      "web_sha256": "820f4376ad9e6afd1a3741326f509a76120a092769fff4911717810b0e7232f4",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "33-bookshop-aisle",
+      "src": "/media/gallery/33-bookshop-aisle.jpg",
+      "width": 1280,
+      "height": 1707,
+      "source_sha256": "6372166e7394825a89ea2bce30c46be6fed81605eb9499e4d70ca5ae61c4c1eb",
+      "web_sha256": "6372166e7394825a89ea2bce30c46be6fed81605eb9499e4d70ca5ae61c4c1eb",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "34-reflecting-pool",
+      "src": "/media/gallery/34-reflecting-pool.jpg",
+      "width": 1280,
+      "height": 1707,
+      "source_sha256": "a5f3e86e12c6b1c04c3aa7ff19da5a7dcd1d3fe410b4e3e88e899cc65b5289d8",
+      "web_sha256": "a5f3e86e12c6b1c04c3aa7ff19da5a7dcd1d3fe410b4e3e88e899cc65b5289d8",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "35-stone-passage",
+      "src": "/media/gallery/35-stone-passage.jpg",
+      "width": 1280,
+      "height": 1707,
+      "source_sha256": "877c0aed358b8ff2c7e1362cc86ac42f0354bc18263134cf42fc778d15a4abd0",
+      "web_sha256": "877c0aed358b8ff2c7e1362cc86ac42f0354bc18263134cf42fc778d15a4abd0",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "36-library-steps",
+      "src": "/media/gallery/36-library-steps.jpg",
+      "width": 1280,
+      "height": 1707,
+      "source_sha256": "73b39f8fcedfe933d6379419fd5532af6b89fb85a2ba5a5e7fc81c7965f2291d",
+      "web_sha256": "73b39f8fcedfe933d6379419fd5532af6b89fb85a2ba5a5e7fc81c7965f2291d",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "37-beach-walk",
+      "src": "/media/gallery/37-beach-walk.jpg",
+      "width": 1707,
+      "height": 1280,
+      "source_sha256": "083960e77270265d8dd42ebd9fd1949bad370342851ee670880df857ab647947",
+      "web_sha256": "083960e77270265d8dd42ebd9fd1949bad370342851ee670880df857ab647947",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "38-cafe-interior",
+      "src": "/media/gallery/38-cafe-interior.jpg",
+      "width": 1707,
+      "height": 1280,
+      "source_sha256": "1dad4865bd40ad6aafc328a8858699415513d6dfda0b54f942251d532cf9d74f",
+      "web_sha256": "1dad4865bd40ad6aafc328a8858699415513d6dfda0b54f942251d532cf9d74f",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "39-wetland-airboat",
+      "src": "/media/gallery/39-wetland-airboat.jpg",
+      "width": 4032,
+      "height": 3024,
+      "source_sha256": "e8df00a8c49242e5a595e017570dba85fb6bd4b3b9f347bb6cd135f1b0457b7a",
+      "web_sha256": "3edb990ecae0da76083f55a758b32e2f8702e4565860fc1212a0c27df8ae8ff9",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "40-canyon-bridge",
+      "src": "/media/gallery/40-canyon-bridge.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_sha256": "6646a323f0f45b842b5ce99daaa328e7366e2332367dec85e4a4cc28ae1a5c06",
+      "web_sha256": "6646a323f0f45b842b5ce99daaa328e7366e2332367dec85e4a4cc28ae1a5c06",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "41-green-valley",
+      "src": "/media/gallery/41-green-valley.jpg",
+      "width": 1707,
+      "height": 1280,
+      "source_sha256": "15f466f47500bc68ebeed4d47fc4806a8776cfdfd33d8344aa8fda2d8978f28f",
+      "web_sha256": "15f466f47500bc68ebeed4d47fc4806a8776cfdfd33d8344aa8fda2d8978f28f",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "42-mountain-portrait",
+      "src": "/media/gallery/42-mountain-portrait.jpg",
+      "width": 1080,
+      "height": 1920,
+      "source_sha256": "33fc626ce2dff3b248330966bc860a9e8eb33842d54beda8cf69d62a865c65a6",
+      "web_sha256": "33fc626ce2dff3b248330966bc860a9e8eb33842d54beda8cf69d62a865c65a6",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    },
+    {
+      "id": "43-stone-arch",
+      "src": "/media/gallery/43-stone-arch.jpg",
+      "width": 1280,
+      "height": 1707,
+      "source_sha256": "e9784667c56d0f411dded49dd78391e432a9b979e6c815347db4ea6ca6201a9f",
+      "web_sha256": "e9784667c56d0f411dded49dd78391e432a9b979e6c815347db4ea6ca6201a9f",
+      "unchanged_pixels": true,
+      "exif_removed": true
+    }
+  ],
+  "video": {
+    "src": "/media/gallery/waterfall-overlook.mp4",
+    "width": 720,
+    "height": 1280,
+    "source_sha256": "898681f0ec69721a7d6e7c6b34005badec98b080271fa8d89e50b90bd05bf894",
+    "web_sha256": "368619b81722d0179aa83eb363ddf804e348e47ffdbed87f2393f15574c7bf3b",
+    "audio_streams": 0,
+    "unchanged_video_frames": 1714
+  }
+}

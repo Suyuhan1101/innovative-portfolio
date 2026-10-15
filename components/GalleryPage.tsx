@@ -3,14 +3,14 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ArrowsOutSimpleIcon, ArrowRightIcon, PlayIcon } from "@phosphor-icons/react";
-import { galleryCategories, galleryPhotos, galleryVideo, type GalleryCategory } from "@/content/gallery";
+import { galleryCategories, galleryPhotos, galleryVideos, type GalleryCategory, type GalleryVideoEntry } from "@/content/gallery";
 import { useMusic } from "./MusicProvider";
 import RevealText from "./RevealText";
 import styles from "./GalleryPage.module.css";
 
 type Props = { onHome: (element: HTMLElement) => void; onPhoto: (index: number, ids: string[]) => void };
 
-function GalleryVideo() {
+function GalleryVideo({ clip, onPlay }: { clip: GalleryVideoEntry; onPlay: (video: HTMLVideoElement) => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [requested, setRequested] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -20,14 +20,15 @@ function GalleryVideo() {
     const video = videoRef.current;
     if (!video) return;
     setRequested(true); setError(null);
-    if (!video.getAttribute("src") || video.error) { video.src = galleryVideo.src; video.load(); }
-    void video.play().catch(() => setError("The video couldn't start. Press play to try again."));
+    if (!video.getAttribute("src") || video.error) { video.src = clip.src; video.load(); }
+    void video.play().then(() => video.focus({ preventScroll: true })).catch(() => setError("The video couldn't start. Press play to try again."));
   };
-  return <section className={styles.videoSection} aria-labelledby="gallery-video-title">
-    <div className={styles.videoCopy}><h2 id="gallery-video-title" data-reveal>{galleryVideo.title}</h2><RevealText text={galleryVideo.description} /><p className={styles.videoMeta} data-reveal>{galleryVideo.duration} · A short video from my internship</p></div>
-    <div className={styles.videoFrame} data-reveal>
-      <video ref={videoRef} width={galleryVideo.width} height={galleryVideo.height} poster={galleryVideo.poster} preload="none" playsInline controls={requested} aria-hidden={!requested} aria-label="Preparing herbs during my traditional Chinese medicine internship" onPlay={() => { if (music.status === "playing" || music.status === "loading") music.pause(); }} onError={() => setError("The video couldn't load. Press play to try again.")} />
-      {!requested && <button type="button" className={styles.videoPlay} aria-label="Play internship video" onClick={play}><PlayIcon size={29} weight="fill" /><span>Play video</span></button>}
+  const headingId = clip.id === "herb-preparation" ? "gallery-video-title" : `gallery-video-title-${clip.id}`;
+  return <section className={styles.videoSection} aria-labelledby={headingId}>
+    <div className={styles.videoCopy}><h2 id={headingId} data-reveal>{clip.title}</h2><RevealText text={clip.description} /><p className={styles.videoMeta} data-reveal>{clip.duration}</p></div>
+    <div className={styles.videoFrame} style={{ aspectRatio: `${clip.width} / ${clip.height}` }} data-reveal>
+      <video ref={videoRef} width={clip.width} height={clip.height} poster={clip.poster} preload="none" playsInline muted={clip.muted} controls={requested} tabIndex={requested ? 0 : -1} aria-hidden={!requested} aria-label={clip.label} onPlay={(event) => { onPlay(event.currentTarget); if (!clip.muted && (music.status === "playing" || music.status === "loading")) music.pause(); }} onError={() => setError("The video couldn't load. Press play to try again.")} />
+      {!requested && <button type="button" className={styles.videoPlay} aria-label={clip.id === "herb-preparation" ? "Play internship video" : `Play ${clip.title}`} onClick={play}><PlayIcon size={29} weight="fill" /><span>Play video</span></button>}
       {error && <div className={styles.videoError}><p role="alert">{error}</p><button type="button" onClick={play}>Try again</button></div>}
     </div>
   </section>;
@@ -35,15 +36,20 @@ function GalleryVideo() {
 
 export default function GalleryPage({ onHome, onPhoto }: Props) {
   const [category, setCategory] = useState<GalleryCategory>("all");
+  const activeVideo = useRef<HTMLVideoElement | null>(null);
+  const playVideo = (video: HTMLVideoElement) => {
+    if (activeVideo.current && activeVideo.current !== video) activeVideo.current.pause();
+    activeVideo.current = video;
+  };
   const photographs = category === "all" ? galleryPhotos : galleryPhotos.filter((photo) => photo.category === category);
   return <div className={styles.content}>
-    <div className={styles.introduction}><RevealText text="Photographs from my travels and the details I stop to notice. I like high places, open views and small things worth a closer look." /></div>
+    <div className={styles.introduction}><RevealText text="Photographs from my travels, everyday moments and the details I stop to notice. I like high places, open views and small things worth a closer look." /></div>
     <div className={styles.filterBar}>
       <div className={styles.filters} role="group" aria-label="Filter photographs" data-reveal>{galleryCategories.map((filter) => {
         const count = filter.id === "all" ? galleryPhotos.length : galleryPhotos.filter((photo) => photo.category === filter.id).length;
         return <button type="button" key={filter.id} className={styles.filter} aria-pressed={category === filter.id} aria-controls="gallery-photographs" onClick={() => setCategory(filter.id)}>{filter.title}<span>{count}</span></button>;
       })}</div>
-      <div className={styles.mediaSummary} data-reveal><p className={styles.photoCount} role="status">{photographs.length} photographs</p><a href="#gallery-video-title" className={styles.videoJump}><PlayIcon size={15} weight="fill" />Watch video</a></div>
+      <div className={styles.mediaSummary} data-reveal><p className={styles.photoCount} role="status">{photographs.length} photographs</p><a href="#gallery-videos" className={styles.videoJump}><PlayIcon size={15} weight="fill" />Watch videos ({galleryVideos.length})</a></div>
     </div>
     <div className={styles.photoGrid} id="gallery-photographs" key={category} role="list" aria-label="Photographs by Yuhan Su">
       {photographs.map((photo) => <figure className={styles.photograph} key={photo.id} role="listitem" data-reveal>
@@ -54,7 +60,7 @@ export default function GalleryPage({ onHome, onPhoto }: Props) {
         <figcaption><span>{photo.title}</span>{photo.place && <span className={styles.photoPlace}>{photo.place}</span>}</figcaption>
       </figure>)}
     </div>
-    <GalleryVideo />
+    <div id="gallery-videos" className={styles.videos}>{galleryVideos.map((clip) => <GalleryVideo key={clip.id} clip={clip} onPlay={playVideo} />)}</div>
     <a href="/" className={`text-link back-home ${styles.backHome}`} data-reveal onClick={(event) => { if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; event.preventDefault(); onHome(event.currentTarget); }}>Back to my world<ArrowRightIcon size={23} weight="light" /></a>
   </div>;
 }

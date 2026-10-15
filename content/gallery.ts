@@ -4,6 +4,7 @@ export const galleryCategories = [
   { id: "all", title: "All photographs" },
   { id: "landscapes", title: "Landscapes" },
   { id: "places", title: "Places & culture" },
+  { id: "everyday", title: "Everyday moments" },
   { id: "details", title: "Small details" },
 ] as const;
 export type GalleryCategory = (typeof galleryCategories)[number]["id"];
@@ -34,10 +35,28 @@ const descriptions: Record<string, Description> = {
   "23-miami-waves": { title: "A restless shoreline", alt: "Turquoise waves breaking along a sandy beach beneath a grey sky", category: "landscapes", place: "Miami", position: "50% 65%" },
   "24-harbor-palms": { title: "Through the palms", alt: "A large cruise ship across a harbor, framed by palm tree trunks", category: "places", position: "50% 45%" },
   "25-flamingos": { title: "A pause in the shade", alt: "A group of pale-pink flamingos standing among plants beside shallow water", category: "details", position: "50% 65%" },
+  "26-classroom-cards": { title: "Around the table", alt: "Students gathered around classroom desks playing a card game", category: "everyday", position: "50% 60%" },
+  "27-desert-tree": { title: "An old tree in the dunes", alt: "A person standing beside a large weathered tree among pale desert dunes", category: "landscapes", position: "50% 65%" },
+  "28-lake-reflections": { title: "Mountains, mirrored", alt: "Bare mountain ridges reflected in the glassy green water of a lake beneath clouds", category: "landscapes" },
+  "29-lake-shore": { title: "At the water's edge", alt: "Visitors and animals along a lake shore beneath pale mountains reflected in still water", category: "landscapes", position: "50% 60%" },
+  "30-turquoise-lake": { title: "A sweep of turquoise", alt: "A turquoise lake curving between bare mountain slopes under a blue sky and white clouds", category: "landscapes", position: "50% 60%" },
+  "31-rock-window": { title: "A window in the rock", alt: "A person on a wooden path looking toward a tall natural opening in textured rock", category: "landscapes", position: "50% 55%" },
+  "32-temple-lanterns": { title: "Lanterns above the courtyard", alt: "Colourful lanterns suspended above a busy temple courtyard with an ornate tiled roof", category: "places" },
+  "33-bookshop-aisle": { title: "Between the shelves", alt: "A person browsing books in a narrow aisle lined with tall bookshelves", category: "places", position: "50% 55%" },
+  "34-reflecting-pool": { title: "A long reflection", alt: "An obelisk beyond a long reflecting pool, with visitors gathered on broad steps", category: "places", position: "50% 55%" },
+  "35-stone-passage": { title: "A passage through stone", alt: "A narrow walkway between tall carved stone walls, with green plants and blue sky above", category: "places" },
+  "36-library-steps": { title: "A quiet place to read", alt: "A person reading on broad indoor steps beneath a tall wall of books and warm wooden panels", category: "places", position: "50% 55%" },
+  "37-beach-walk": { title: "Beside the waves", alt: "A person with a backpack walking along a sandy beach beside turquoise waves", category: "landscapes", position: "50% 60%" },
+  "38-cafe-interior": { title: "A table for a while", alt: "A warmly lit cafe with a long bar, green chairs, hanging lights and people at tables", category: "everyday" },
+  "39-wetland-airboat": { title: "Out on the wetland", alt: "An airboat carrying visitors through a broad wetland of reeds and blue water", category: "landscapes", position: "50% 60%" },
+  "40-canyon-bridge": { title: "Across the canyon", alt: "A person wearing a harness crossing suspended wooden steps above a deeply eroded canyon", category: "landscapes", position: "50% 55%" },
+  "41-green-valley": { title: "Green folds in the hills", alt: "Rolling green hills, dark conifer forests and grazing animals beneath a blue mountain horizon", category: "landscapes" },
+  "42-mountain-portrait": { title: "Below the snowy peak", alt: "A person standing on open ground beneath a snow-covered mountain and large white clouds", category: "landscapes", position: "50% 60%" },
+  "43-stone-arch": { title: "Under the arch", alt: "A person climbing steps toward a tall natural stone arch between textured canyon walls", category: "landscapes", position: "50% 60%" },
 };
 
 // Interleave wide views, places and details instead of presenting every mountain together.
-const order = ["22-high-view", "04-dragon-boats", "02-mushrooms", "01-snow-trail", "05-campus-clock", "15-alpine-forest", "23-miami-waves", "13-red-canyon", "03-lotus-wall", "17-yurt-hillside", "07-fireworks", "10-river-plain", "25-flamingos", "08-mountain-reflection", "06-pavilion", "19-eroded-canyon", "24-harbor-palms", "11-glacier", "21-lake-mountain", "18-alpine-valley", "14-mountain-river", "09-clouded-peaks", "20-lakeside-path", "16-waterfall", "12-snow-mountain-sky"];
+const order = ["26-classroom-cards", "30-turquoise-lake", "33-bookshop-aisle", "27-desert-tree", "39-wetland-airboat", "32-temple-lanterns", "28-lake-reflections", "40-canyon-bridge", "36-library-steps", "41-green-valley", "37-beach-walk", "31-rock-window", "29-lake-shore", "38-cafe-interior", "42-mountain-portrait", "34-reflecting-pool", "35-stone-passage", "43-stone-arch", "22-high-view", "04-dragon-boats", "02-mushrooms", "01-snow-trail", "05-campus-clock", "15-alpine-forest", "23-miami-waves", "13-red-canyon", "03-lotus-wall", "17-yurt-hillside", "07-fireworks", "10-river-plain", "25-flamingos", "08-mountain-reflection", "06-pavilion", "19-eroded-canyon", "24-harbor-palms", "11-glacier", "21-lake-mountain", "18-alpine-valley", "14-mountain-river", "09-clouded-peaks", "20-lakeside-path", "16-waterfall", "12-snow-mountain-sky"];
 
 export const galleryPhotos = order.map((id) => {
   const image = manifest.images.find((entry) => entry.id === id);
@@ -47,7 +66,32 @@ export const galleryPhotos = order.map((id) => {
   return { ...image, ...description, label: `${description.title}${description.place ? ` · ${description.place}` : ""}`, thumbnailRatio: ratio > 1.65 ? "16 / 9" : ratio > 1 ? "4 / 3" : "4 / 5" };
 });
 
-export const galleryVideo = {
+export type GalleryVideoEntry = {
+  id: string;
+  src: string;
+  poster: string;
+  width: number;
+  height: number;
+  title: string;
+  description: string;
+  duration: string;
+  label: string;
+  muted: boolean;
+};
+
+export const galleryVideos: GalleryVideoEntry[] = [{
+  id: "waterfall-overlook",
+  src: "/media/gallery/waterfall-overlook.mp4",
+  poster: "/media/gallery/waterfall-overlook-poster.jpg",
+  width: 720,
+  height: 1280,
+  title: "Mist over the falls",
+  description: "A view of the falls, the drifting mist and the boats below.",
+  duration: "0:57",
+  label: "Waterfalls, mist and boats seen from an overlook",
+  muted: true,
+}, {
+  id: "herb-preparation",
   src: "/media/gallery/herb-preparation.mp4",
   poster: "/media/gallery/herb-preparation-poster.jpg",
   width: 320,
@@ -55,4 +99,6 @@ export const galleryVideo = {
   title: "A moment at the dispensary",
   description: "Preparing herbs during my traditional Chinese medicine internship.",
   duration: "0:36",
-};
+  label: "Preparing herbs during my traditional Chinese medicine internship",
+  muted: false,
+}];

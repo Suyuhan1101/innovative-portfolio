@@ -19,11 +19,13 @@
 .photoButton:hover .expandHint, .photoButton:focus-visible .expandHint { opacity: 1; }
 .photograph figcaption { padding-top: 10px; font-size: var(--text-small); line-height: 1.5; }
 .photoPlace { display: block; color: var(--muted); font-size: .9em; margin-top: 3px; }
+.videos { scroll-margin-top: 100px; }
 .videoSection { border-top: 1px solid var(--rule); padding-top: 34px; margin-top: 14px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: 28px 60px; align-items: center; }
+.videoSection + .videoSection { margin-top: 34px; }
 .videoCopy h2 { font: 400 clamp(1.75rem, calc(1.25rem + 1vw), 2.5rem)/1.15 var(--font-display), Georgia, serif; letter-spacing: -.025em; margin: 0 0 20px; }
 .videoCopy h2 { scroll-margin-top: 100px; }
 .videoMeta { color: var(--muted); font-size: var(--text-small); }
-.videoFrame { position: relative; width: min(100%, 320px); justify-self: center; aspect-ratio: 320 / 568; background: #e6e6dc; }
+.videoFrame { position: relative; width: min(100%, 320px); justify-self: center; background: #e6e6dc; }
 .videoFrame video { display: block; width: 100%; height: 100%; object-fit: contain; }
 .videoPlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 13px; background: rgb(17 20 28 / .2); color: white; font-size: var(--text-small); }
 .videoPlay svg { width: 66px; height: 66px; padding: 19px 17px 19px 21px; background: var(--green); border-radius: 50%; }
@@ -40,8 +42,8 @@
 }
 @media (max-width: 600px) {
   .filterBar { gap: 13px; margin: 22px 0; padding-block: 14px; }
-  .filters { gap: 6px; }
-  .filter { padding: 9px 10px; gap: 8px; }
+  .filters { gap: 6px; flex-wrap: nowrap; width: 100%; min-width: 0; overflow-x: auto; padding: 3px 0 8px; scrollbar-width: thin; }
+  .filter { flex: 0 0 auto; padding: 9px 10px; gap: 8px; }
   .photoGrid { columns: 1; }
   .photograph { margin-bottom: 24px; }
   .expandHint { opacity: 1; }

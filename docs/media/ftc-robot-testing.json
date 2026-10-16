@@ -1,0 +1,18 @@
+{
+  "id": "ftc-robot-testing",
+  "src": "/media/hobby/ftc-robot-testing.mp4",
+  "poster": "/media/hobby/ftc-robot-testing.jpg",
+  "poster_second": 10,
+  "width": 568,
+  "height": 320,
+  "duration": 103.18,
+  "bytes": 10879295,
+  "source_sha256": "da089e8f36cd2a9fa5433e2d4be8bf2450244afc10880bea27f77d9c912fc9b2",
+  "web_sha256": "52b314f02b56114bdbbf847ec21c65e457e2c071c3a8681bc4fd76cce042ce1e",
+  "video_stream_sha256": "b86758bcd31bb5f042965c946ddcaacf5862ab3c1a85bbb7542f9d1b1ea64d0f",
+  "audio_stream_sha256": "b46b91830912af0b1ee3ae6780888872e410f89cb1b10ada99f6bb69f060ae23",
+  "verified_identical_video_and_audio": true,
+  "audio_streams": 1,
+  "default_muted": true,
+  "fast_start": true
+}

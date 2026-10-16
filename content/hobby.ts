@@ -23,6 +23,17 @@ export const roboticsVideo: HobbyVideo = {
   duration: "2:57",
 };
 
+export const ftcVideo: HobbyVideo = {
+  id: "ftc-robot-testing",
+  title: "FTC robot testing",
+  description: "Robot testing with my high school FTC club.",
+  src: "/media/hobby/ftc-robot-testing.mp4",
+  poster: "/media/hobby/ftc-robot-testing.jpg",
+  width: 568,
+  height: 320,
+  duration: "1:43",
+};
+
 export const legoVideos: HobbyVideo[] = [
   {
     id: "lego-robotic-arm",
@@ -72,7 +83,7 @@ export const hobbyCategories = [
   },
   {
     id: "robotics-lego", slug: "robotics-lego", title: "Robotics & LEGO",
-    description: "From a robotics competition to a LEGO robotic arm and walking robot.",
+    description: "High school FTC robot testing, a robotics competition, and LEGO machines in motion.",
     image: { src: roboticsVideo.poster, alt: "Robotics teams and their machines on the competition floor" },
   },
 ] as const;

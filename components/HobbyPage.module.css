@@ -16,12 +16,12 @@
 .video figcaption p, .duration { font-size: var(--text-small); color: var(--muted); }
 .duration { flex-shrink: 0; font-variant-numeric: tabular-nums; }
 .legoVideos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; width: min(100%, 720px); margin-inline: auto; }
-.competitionVideo { max-width: 850px; margin-inline: auto; }
+.roboticsVideos { display: grid; gap: 40px; max-width: 850px; margin-inline: auto; }
 .legoSection { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule); }
 .swimmingVideos { display: grid; gap: 40px; max-width: 850px; margin-inline: auto; }
 .backHome { margin-top: 32px; }
 @media (max-width: 700px) {
   .categoryHeader { grid-template-columns: 1fr; gap: 16px; margin-bottom: 24px; }
   .legoVideos { grid-template-columns: minmax(0, 1fr); max-width: 360px; gap: 30px; }
-  .swimmingVideos { gap: 30px; }
+  .swimmingVideos, .roboticsVideos { gap: 30px; }
 }

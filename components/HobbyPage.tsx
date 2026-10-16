@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { ArrowRightIcon, PlayIcon } from "@phosphor-icons/react";
-import { legoVideos, roboticsVideo, swimmingVideos, type HobbyVideo } from "@/content/hobby";
+import { ftcVideo, legoVideos, roboticsVideo, swimmingVideos, type HobbyVideo } from "@/content/hobby";
 import { caseStudiesFor, type CaseStudyEntry } from "@/content/case-studies";
 import CaseStudyGallery from "./CaseStudyGallery";
 import MusicPage from "./MusicPage";
@@ -56,7 +56,10 @@ export function HobbyCategoryPage({ id, onPhoto }: { id: string; onPhoto: (index
       <div className={styles.swimmingVideos}>{swimmingVideos.map((clip) => <Video key={clip.id} clip={clip} onPlay={playVideo} />)}</div>
     </section> : <section aria-labelledby="hobby-robotics-title">
       <div className={styles.categoryHeader} data-reveal><h2 id="hobby-robotics-title">Robotics &amp; LEGO</h2><p>My interest in coding started with LEGO EV3. I liked the moment a small machine actually did what I had imagined.</p></div>
-      <div className={styles.competitionVideo}><Video clip={roboticsVideo} onPlay={playVideo} /></div>
+      <div className={styles.roboticsVideos}>
+        <Video clip={ftcVideo} onPlay={playVideo} />
+        <Video clip={roboticsVideo} onPlay={playVideo} />
+      </div>
       <section className={styles.legoSection} aria-labelledby="hobby-lego-title">
         <div className={styles.categoryHeader} data-reveal><h2 id="hobby-lego-title">LEGO in motion.</h2><p>Building mechanisms, then seeing them move. Two of my LEGO robots in action.</p></div>
         <div className={styles.legoVideos}>{legoVideos.map((clip) => <Video key={clip.id} clip={clip} onPlay={playVideo} />)}</div>

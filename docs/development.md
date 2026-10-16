@@ -35,7 +35,7 @@ npm start
 | `components/HomeHeading.tsx` | 首页与 Home 转场共用的标题，确保字体和换行一致。 |
 | `components/InstrumentIntro.tsx`、`components/InstrumentIntro.module.css` | 全英文、无声的 YH 仪表启动进场；圆弧、七个刻度和单次扫线，支持 Skip intro。 |
 | `components/LandscapeFragments.tsx`、`components/landscape-particles.ts`、`public/media/intro/` | 两股细小风景碎片流；Canvas 图集缓存照片局部裁切，每片独立弯曲漂移和旋转，左上右下。手机端减量，关闭动画或标签页隐藏时停止绘制。 |
-| `components/HobbyPage.tsx`、`content/hobby.ts` | Hobby 的 Music、Sport、Robotics & LEGO 三张入口卡片及独立详情；六段本地无声视频。音乐内容继续由 MusicPage 维护。 |
+| `components/HobbyPage.tsx`、`content/hobby.ts` | Hobby 的 Music、Sport、Robotics & LEGO 三张入口卡片及独立详情；七段本地视频。高中 FTC 测试视频在比赛视频之前，保留原声并默认静音；其余六段保持无声。音乐内容继续由 MusicPage 维护。 |
 | `components/GalleryPage.tsx`、`content/gallery.ts` | 43 张照片、分类筛选与两段站内视频；素材尺寸由 public/media/gallery/manifest.json 管理。 |
 | `components/Tile.tsx` | 方块图标、名称和箭头，以及保持对比度的反转色视觉层。 |
 | `components/SectionPage.tsx` | 各栏目内容与媒体布局。 |

@@ -53,3 +53,13 @@ TypeScript 与 Next.js 生产构建通过，普通预览标签页无浏览器 er
 - 悬停实测扫光 animationDuration 为 1.15s，卡片轻微上移；扫光在正文与双奖牌背后，避免遮盖文字。
 - 通过站内菜单切换 Reduced，实测根节点 data-motion=reduced，奖杯 animationName=none、卡片 transitionDuration=0s；测试后恢复 Full。视口覆盖也恢复默认。
 - 本地生产构建通过（含 TypeScript），无新增运行时依赖。截图见 `qa/honors-showcase-desktop.png`、`qa/honors-showcase-certificates.png`、`qa/honors-showcase-tablet.png`、`qa/honors-showcase-mobile.png`、`qa/honors-showcase-mobile-arts.png`。
+
+## 2026-10-15：中央奖杯与连线奖项网络
+
+- 按用户新选择替代展位布局：中央奖杯与 11 个等大的奖项符号，不预选或突出某项。桌面符号实测均为 60 × 60px，320px 窄屏均为 48 × 48px。
+- 实际鼠标悬停 USACO 显示一句短介绍与年份，对应连线强调；拖入奖杯后打开 USACO 完整详情，焦点落在详情区域。拖动 Conrad 到空白处后归位，详情保持隐藏、moving 节点为 0，并显示正确的辅助状态文本。
+- 窄屏实际拖动钢琴符号到奖杯后显示 Grade 8 Piano、2023 与 China Conservatory of Music。点击 Good Clinical Practice 正常显示 CITI 认证信息。
+- 键盘 Enter 可打开 FTC 并显示两次完整 Inspire Award 记录；Space 可打开 Conrad。方向键从 Good Clinical Practice 切换到 Human Subjects Research；Escape 隐藏悬停介绍。返回按钮恢复来源符号焦点和图形视图。
+- 320px 的 clientWidth / scrollWidth 均为 305px；768px 均为 753px，全部短标签完整，无横向溢出。未模拟真实手机硬件触摸，本次窄屏交互使用桌面浏览器指针操作。
+- Reduced 模式下节点与奖杯 transitionDuration 为 0s，详情 animationName 为 none，Space 查看详情仍正常。测试后恢复 Full 与默认视口。
+- Next.js 生产构建及 TypeScript 通过，浏览器无 error 级别日志；没有新增依赖。截图：`qa/honors-network-preview.png`、`qa/honors-network-details.png`、`qa/honors-network-mobile.png`、`qa/honors-network-mobile-details.png`。

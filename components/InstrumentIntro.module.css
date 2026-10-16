@@ -28,7 +28,7 @@
 .name { font-size: clamp(.875rem, 1.5vw, 1.125rem); line-height: 1.3; letter-spacing: .015em; }
 .enterLabel { position: absolute; top: calc(50% + var(--instrument-size) * .38 + 26px); display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px; border: 1px solid rgb(23 73 45 / .6); background: var(--paper); color: var(--green); font-size: .875rem; line-height: 1.3; transition: background .2s, color .2s; }
 .start:not(:disabled):hover .enterLabel { background: var(--green); color: var(--paper); }
-.start:focus-visible .enterLabel { outline: 2px solid var(--accent); outline-offset: 5px; }
+.start:focus-visible .enterLabel { background: var(--green); color: var(--paper); }
 .welcome { position: absolute; max-width: 100%; color: var(--green); opacity: 0; visibility: hidden; font: 400 clamp(1.25rem, min(6.8vw, 12svh), 6.5rem)/1.1 var(--font-display), Georgia, serif; letter-spacing: -.025em; white-space: nowrap; }
 .scan { position: absolute; left: calc(50% - var(--instrument-size) * .52); top: 50%; width: calc(var(--instrument-size) * 1.04); height: 1px; background: linear-gradient(90deg, transparent, rgb(23 73 45 / .7) 30%, rgb(23 73 45 / .7) 70%, transparent); opacity: 0; pointer-events: none; }
 .progress { position: absolute; top: calc(50% + var(--instrument-size) * .38 + 48px); width: 140px; height: 1px; background: rgb(23 73 45 / .1); opacity: 0; }

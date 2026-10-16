@@ -73,3 +73,11 @@ TypeScript 与 Next.js 生产构建通过，普通预览标签页无浏览器 er
 - 桌面 11 格均约 177 × 205.6px；320px 窄屏均约 119.5 × 138.9px，文字完整。320px 的 clientWidth / scrollWidth 均为 305px；768px 均为 753px，无横向溢出。手机样式通过桌面响应式视口验证，未模拟真实手机硬件触摸。
 - 站内 Reduced 模式下，填色 transitionDuration 为 0s、详情 animationName 为 none，Space 仍可查看详情。测试后恢复 Full 与默认视口。
 - 最终 Next.js 生产构建与 TypeScript 通过，没有新增依赖。截图：`qa/honors-honeycomb-details.png`、`qa/honors-honeycomb-mobile.png`、`qa/honors-honeycomb-mobile-details.png`。
+
+## 2026-10-15：按 Coursework 截图改为浅色蜂巢
+
+- 深绿金色展墙替换为现有课程蜂巢同款米白、深绿细边、衬线名称与左蜂巢／右详情布局。11 个格子等大，不预选某一项；手机三列交错、详情在下方。
+- 悬停、聚焦或点击切换详情；方向键、Enter 与 Space 正常。FTC 两次 Inspire Award、CITI 机构说明、钢琴机构与国画年份均实测保留。
+- 首次 320px 检查发现长名称拥挤和 Research Coord. 内部溢出，增加仅手机使用的短名称后，所有 11 格均无内部溢出，clientWidth / scrollWidth 均为 305px。768px 两者均为 753px。
+- Reduced 下填色为 0s、详情动画为 none；验证后恢复 Full 和默认视口。没有新增声音或依赖，浏览器 error 日志为空，最终生产构建和 TypeScript 通过。
+- 原参考与实际页面在 `qa/honors-coursework-comparison-final.png` 并排对比；手机修复前后见 `qa/honors-coursework-mobile-comparison.png`，完整验收记录追加在项目根 `design-qa.md`。

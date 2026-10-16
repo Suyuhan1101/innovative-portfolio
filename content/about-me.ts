@@ -30,6 +30,7 @@ export type AboutHonor = {
   symbol: "robotics" | "academics" | "computing" | "innovation" | "service" | "research" | "piano" | "painting";
   title: string;
   label: string;
+  compactLabel?: string;
   summary: string;
   years: string;
   description?: string;
@@ -52,6 +53,7 @@ export const aboutHonors: AboutHonorGroup[] = [
         symbol: "robotics",
         title: "FTC Robotics — Summit Knights 14365",
         label: "FTC Robotics",
+        compactLabel: "FTC",
         summary: "Two team Inspire Awards.",
         years: "2024–2025",
         description: "Team awards at Ohio FTC State Championship qualifiers.",
@@ -65,6 +67,7 @@ export const aboutHonors: AboutHonorGroup[] = [
         symbol: "academics",
         title: "Director’s List with High Honors",
         label: "High Honors",
+        compactLabel: "Honors",
         summary: "Top 10% of students by GPA.",
         years: "2024–2025",
         description: "Awarded to the top 10% of students by GPA.",
@@ -87,9 +90,9 @@ export const aboutHonors: AboutHonorGroup[] = [
     id: "research-certifications",
     title: "Research certifications",
     entries: [
-      { id: "good-clinical-practice", symbol: "research", title: "Good Clinical Practice", label: "Clinical Practice", summary: "CITI Good Clinical Practice certification.", years: "2026", description: "CITI Program certification" },
-      { id: "human-subjects-research", symbol: "research", title: "Human Subjects Research", label: "Human Subjects", summary: "CITI Human Subjects Research certification.", years: "2026", description: "CITI Program certification" },
-      { id: "research-coordinator", symbol: "research", title: "Clinical Research Coordinator Foundations", label: "Research Coord.", summary: "CITI Clinical Research Coordinator Foundations.", years: "2026", description: "CITI certificate" },
+      { id: "good-clinical-practice", symbol: "research", title: "Good Clinical Practice", label: "Clinical Practice", compactLabel: "GCP", summary: "CITI Good Clinical Practice certification.", years: "2026", description: "CITI Program certification" },
+      { id: "human-subjects-research", symbol: "research", title: "Human Subjects Research", label: "Human Subjects", compactLabel: "HSR", summary: "CITI Human Subjects Research certification.", years: "2026", description: "CITI Program certification" },
+      { id: "research-coordinator", symbol: "research", title: "Clinical Research Coordinator Foundations", label: "Research Coord.", compactLabel: "CRC", summary: "CITI Clinical Research Coordinator Foundations.", years: "2026", description: "CITI certificate" },
     ],
   },
   {
@@ -97,7 +100,7 @@ export const aboutHonors: AboutHonorGroup[] = [
     title: "Music & arts",
     entries: [
       { id: "piano-grade-eight", symbol: "piano", title: "Grade 8 Piano", label: "Piano · 8", summary: "Grade 8, China Conservatory of Music.", years: "2023", description: "China Conservatory of Music" },
-      { id: "landscape-painting", symbol: "painting", title: "Grade 4 Award in Chinese Landscape Painting", label: "Painting · 4", summary: "Grade 4 in Chinese landscape painting.", years: "2023" },
+      { id: "landscape-painting", symbol: "painting", title: "Grade 4 Award in Chinese Landscape Painting", label: "Painting · 4", compactLabel: "Art · 4", summary: "Grade 4 in Chinese landscape painting.", years: "2023" },
     ],
   },
 ];

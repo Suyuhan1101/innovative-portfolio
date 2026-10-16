@@ -355,3 +355,38 @@ final result: passed (local production build)
 - 应用 error 日志为空。npm run build 通过 TypeScript 和 16 页生成；git diff --check 通过。证据：docs/qa/hobby-checks.json、hobby-robotics-desktop.png、hobby-lego-desktop.png、hobby-lego-mobile.png。
 
 final result: passed (local production build)
+
+# 2026-10-15 Honors 对齐 Coursework 参考
+
+范围：用户要求将 About Me 的奖项区改成其所附 Coursework 样式；以 11 个真实奖项替代参考中的 15 门课程，保留原有页面和内容。
+
+## 视觉依据与对比
+
+- 视觉源：`C:/Users/Suyuh/AppData/Local/Temp/codex-clipboard-36914f7d-f941-4da1-9aeb-d45f95e21e88.png`；副本 `docs/qa/honors-coursework-reference.png`，3642 × 1551px。
+- 实现：`http://127.0.0.1:3001/about-me#about-honors-title`，`docs/qa/honors-coursework-desktop-final.png`，原生截图 1265 × 712px；默认浏览器约 1280px 宽、15px 稳定滚动条，内容截图密度为 1。
+- 全景并排对比：`docs/qa/honors-coursework-comparison-final.png`。参考等比缩到 1265px 宽，与实现放在同一比较图中逐项检查。原参考未提供 CSS 视口／设备密度，因此不把截图像素大小、页眉裁剪和课程／奖项数量差异当作视觉偏差，也不声称像素级复刻。
+- 状态：参考为 Macro 课程选中，实现为 USACO 奖项选中；对照同一种深绿填色状态。右侧内容按真实奖项替换，文字长度造成的换行是预期差异。
+- 聚焦对比：`docs/qa/honors-coursework-mobile-comparison.png`，320px 视口的修改前后文字检查；原生截图均为 305 × 724px。两图滚动位置及选中条目不同，比较只针对各格内文字可读性，不用于断言对齐或选中态一致。
+
+## 检查结果与迭代
+
+第一轮发现 [P2] 320px 下 Research Coord. 内部横向溢出，长名称使格内内容拥挤；证据 `docs/qa/honors-coursework-mobile-before.png`。使用移动端 compactLabel（FTC、Honors、GCP、HSR、CRC、Art · 4）修复，完整辅助名称和详情不变。第二轮 `docs/qa/honors-coursework-mobile.png` 所有 11 个按钮均无内部溢出，页面 clientWidth / scrollWidth 均为 305px。
+
+| 必查项目 | 最终结果 |
+| --- | --- |
+| 字体 | 直接沿用 Coursework 的 DM Serif Display 标题／奖项名称、DM Sans 年份／正文与字号策略；未选中深绿字，选中米白字。 |
+| 排版 | 同款米白画布、细边六边形、2px 单元格间距、左蜂巢／右竖分隔线详情，列比例 1.65:1；11 项对应四／三／四，手机三列。移除金色展墙和独立展开卡片。 |
+| 颜色 | 复用站点 paper #faf9f4、green #17492d、muted #69707b、rule #d8d9d1、浅绿 #edf1e9；没有新增渐变、阴影或配色。 |
+| 图像与图标 | 参考为原生文字和交互六边形，没有需要生成的位图资产。直接沿用已存在的 Coursework 六边形 UI 结构，不把截图贴成图片或添加奖项图标。 |
+| 内容 | 11 项原始全名、年份和说明保留；FTC 两次团队 Inspire Award、CITI 认证、钢琴机构署名均完整。类别图例不冒用 Completed / In progress 状态。 |
+
+## 交互与工程检查
+
+- 实际鼠标移到 USACO，详情显示 Silver Award 和 2026；Enter 打开 FTC 两次获奖记录，来源按钮保留焦点。方向键从 Good Clinical Practice 切到 Human Subjects Research；Space 显示国画完整名称和 2023。手机点击 CRC 显示全名和 CITI certificate，点击钢琴显示 China Conservatory of Music。
+- 768px 的 clientWidth / scrollWidth 均为 753px，所有按钮无内部溢出；手机详情在蜂巢下方。未验证真实手机硬件触摸，使用桌面响应式视口。
+- Reduced 下填色过渡为 0s、详情 animationName 为 none，键盘选择仍可用。验证后恢复 Full 与默认视口。
+- 最终 Next.js 生产构建与 TypeScript 通过；浏览器 error 日志为空，没有新增依赖。Academic 页面本身未改动。
+
+无剩余 P0／P1／P2 项。参考对应的是课程内容，奖项类别与年份替换、等大格子从 15 个调整为 11 个属于此次要求的样式迁移范围。
+
+final result: passed

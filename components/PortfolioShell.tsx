@@ -16,6 +16,7 @@ import HomePage from "./HomePage";
 import SectionPage from "./SectionPage";
 import { TileFace } from "./Tile";
 import HomeHeading from "./HomeHeading";
+import InstrumentIntro, { type IntroStage } from "./InstrumentIntro";
 import { aboutMe, aboutMedia } from "@/content/about-me";
 import { useMusicActive } from "./MusicProvider";
 import { MusicTransport } from "./MusicPlayer";
@@ -46,6 +47,7 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
   const [viewPath, setViewPath] = useState(pathname);
   const [entered, setEntered] = useState(false);
   const [introVisible, setIntroVisible] = useState(true);
+  const [introStage, setIntroStage] = useState<IntroStage>("ready");
   const [busy, setBusy] = useState(false);
   const [phase, setPhase] = useState("intro");
   const [entering, setEntering] = useState(true);
@@ -59,8 +61,8 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
   const mainRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLElement>(null);
   const brandRef = useRef<HTMLSpanElement>(null);
-  const introRef = useRef<HTMLButtonElement>(null);
-  const introTextRef = useRef<HTMLSpanElement>(null);
+  const introRef = useRef<HTMLDivElement>(null);
+  const introWelcomeRef = useRef<HTMLSpanElement>(null);
   const targetRef = useRef<HTMLDivElement>(null);
   const flightRef = useRef<HTMLDivElement>(null);
   const homeSurfaceRef = useRef<HTMLDivElement>(null);
@@ -232,6 +234,11 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
     setViewPath(pathname);
     setPage(destination);
     setEntering(!enteredRef.current);
+    if (enteredRef.current) setIntroVisible(false);
+    else {
+      setIntroStage("ready");
+      introRef.current?.style.setProperty("--intro-progress", "0");
+    }
     if (mainRef.current) mainRef.current.style.opacity = enteredRef.current ? "1" : "0";
     headerRef.current?.querySelectorAll<HTMLElement>("[data-header-item]").forEach((item) => { item.style.opacity = "1"; item.style.transform = "none"; });
     mark(enteredRef.current ? "idle" : "intro");
@@ -255,39 +262,72 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
     }
   }, [dialog]);
 
+  async function completeIntro(signal: AbortSignal, fast = false) {
+    if (signal.aborted) return;
+    enteredRef.current = true;
+    setEntered(true); setEntering(false);
+    if (!fast) setIntroStage("exiting");
+    if (brandRef.current) brandRef.current.style.opacity = fast ? "1" : "0";
+    if (mainRef.current) {
+      mainRef.current.style.opacity = "1";
+      mainRef.current.querySelectorAll<HTMLElement>("[data-home-reveal], [data-page-title], [data-reveal]").forEach(element => {
+        element.style.opacity = "1"; element.style.transform = "none"; element.style.clipPath = "none";
+      });
+    }
+    if (headerRef.current) headerRef.current.style.opacity = "1";
+    await nextFrame();
+    const welcome = introWelcomeRef.current;
+    const brand = brandRef.current;
+    if (!fast && welcome && brand) {
+      const from = welcome.getBoundingClientRect();
+      const to = brand.getBoundingClientRect();
+      // Keep the revealed title itself in flight, then hand it to the header
+      // at the measured position and size rather than swapping visible copies.
+      Object.assign(welcome.style, {
+        position: "fixed", left: `${from.left}px`, top: `${from.top}px`,
+        width: `${from.width}px`, height: `${from.height}px`, transformOrigin: "0 0",
+      });
+      mark("welcome-move");
+      await tween(welcome, {
+        x: [0, to.left - from.left], y: [0, to.top - from.top], scale: [1, to.width / from.width],
+        color: [getComputedStyle(welcome).color, getComputedStyle(brand).color],
+      }, timing.welcomeMove, signal, 0, motionEase.move);
+    }
+    if (brand) brand.style.opacity = "1";
+    mark("intro-exit");
+    await tween(introRef.current, { opacity: 0 }, fast ? .12 : timing.introExit, signal);
+    setIntroVisible(false);
+    finish();
+    await nextFrame();
+    if (!signal.aborted) mainRef.current?.querySelector<HTMLElement>("h1")?.focus({ preventScroll: true });
+  }
+
+  function recoverIntro(signal: AbortSignal) {
+    if (signal.aborted) return;
+    enteredRef.current = true; setEntered(true); setIntroVisible(false);
+    recover(signal);
+  }
+
   async function enterWorld() {
     if (busyRef.current || enteredRef.current) return;
     const signal = startOperation();
     try {
-      await document.fonts.ready;
-      const text = introTextRef.current;
-      const brand = brandRef.current;
-      if (!text || !brand) return;
-      mark("welcome-move");
-      const from = text.getBoundingClientRect();
-      const to = brand.getBoundingClientRect();
-      text.style.position = "fixed";
-      text.style.left = `${from.left}px`;
-      text.style.top = `${from.top}px`;
-      text.style.width = `${from.width}px`;
-      text.style.transformOrigin = "0 0";
-      headerRef.current?.querySelectorAll<HTMLElement>("[data-header-item]").forEach((item) => { item.style.opacity = "0"; });
-      await tween(text, { x: to.left - from.left, y: to.top - from.top, scale: to.width / from.width }, timing.welcomeMove, signal, 0, motionEase.move);
-      enteredRef.current = true;
-      setEntered(true);
-      brand.style.opacity = "1";
-      if (headerRef.current) headerRef.current.style.opacity = "1";
-      await tween(introRef.current, { opacity: 0 }, timing.introExit, signal);
-      setIntroVisible(false);
-      mark("header-enter");
-      const headerItems = Array.from(headerRef.current?.querySelectorAll<HTMLElement>("[data-header-item]") ?? []).filter((item) => item !== brand);
-      await Promise.all(headerItems.map((item, index) => tween(item, { opacity: [0, 1], x: [-10, 0] }, timing.headerEnter, signal, index * timing.headerStagger)));
-      if (page !== "home") await tween(targetRef.current, { opacity: [0, 1] }, timing.tileLand, signal);
-      await revealPage(page, signal);
-      finish();
-      await nextFrame();
-      if (!signal.aborted) mainRef.current?.querySelector<HTMLElement>("h1")?.focus({ preventScroll: true });
-    } catch { recover(signal); }
+      mark(reduced ? "intro-fade" : "intro-boot");
+      if (!reduced) {
+        setIntroStage("booting");
+        await nextFrame();
+        await tween(introRef.current, { "--intro-progress": [0, 1] }, timing.introBoot, signal, 0, [0, 0, 1, 1]);
+      }
+      await completeIntro(signal, reduced);
+    } catch { recoverIntro(signal); }
+  }
+
+  async function skipIntro() {
+    if (introStage !== "booting" || enteredRef.current) return;
+    const signal = startOperation();
+    mark("intro-skip");
+    try { await completeIntro(signal, true); }
+    catch { recoverIntro(signal); }
   }
 
   async function openMenu() {
@@ -621,8 +661,7 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
     {musicActive && entered && (page !== "about-me" || busy) && !musicInMenu && !dialog && <div className="music-floating"><MusicTransport onStop={restoreTransportFocus} onExpand={expandMusic} disabled={busy} /></div>}
     {menuMounted && <div ref={menuRef} className={`menu-layer ${musicActive ? "has-music" : ""}`} id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu"><div className="menu-cover" ref={coverRef} /><button ref={closeRef} className="menu-close icon-button" aria-label="Close menu" disabled={busy} onClick={() => void closeMenu()}><XIcon size={36} weight="light" /></button><div className="menu-grid" ref={menuGridRef}>{menuPages.map((id) => <a href={pageHref(id)} className={`tile ${id === page ? "active" : ""}`} aria-current={id === page ? "page" : undefined} key={id} data-page={id} tabIndex={menu === "open" ? 0 : -1} onClick={(event) => { if (event.metaKey || event.ctrlKey || event.shiftKey) return; event.preventDefault(); void navigate(id, event.currentTarget, "menu"); }}><TileFace page={id} interactive /></a>)}{motionSettings("menu-motion-settings")}</div>{musicActive && musicInMenu && <div className="music-overlay"><MusicTransport onStop={restoreTransportFocus} onExpand={expandMusic} disabled={busy} /></div>}</div>}
     {flight && <div ref={flightRef} className={`tile active floating-tile from-${flight.appearance} ${homeTitleFlight ? "home-morph" : ""}`} style={{ left: flight.rect.left, top: flight.rect.top, width: flight.rect.width, height: flight.rect.height }} aria-hidden="true">{homeTitleFlight ? <><div className="home-morph-surface" ref={homeSurfaceRef} /><div className="home-morph-face" ref={homeFaceRef}><TileFace page="home" /></div>{flight.homeTitle && <div className="home-morph-title" ref={homeTitleRef} style={{ width: flight.homeTitle.width, height: flight.homeTitle.height }}><HomeHeading style={{ fontSize: flight.homeTitle.fontSize, lineHeight: flight.homeTitle.lineHeight, letterSpacing: flight.homeTitle.letterSpacing }} /></div>}</> : <TileFace page={flight.page} />}</div>}
-    {introVisible && <button className="intro-screen" ref={introRef} onClick={() => void enterWorld()} disabled={busy} aria-label="Enter Yuhan Su's world"><span className="intro-button"><span className="intro-title" ref={introTextRef}>Welcome to My World</span><span className="intro-hint">Click to enter <ArrowRightIcon size={22} weight="light" /></span></span></button>}
-    {introVisible && motionSettings("intro-motion-settings")}
+    {introVisible && <InstrumentIntro rootRef={introRef} welcomeRef={introWelcomeRef} stage={introStage} busy={busy} reduced={reduced} settings={motionSettings("intro-motion-settings")} onStart={() => void enterWorld()} onSkip={() => void skipIntro()} />}
     <dialog ref={dialogRef} className={`media-dialog ${dialog?.type === "contact" ? "contact-dialog" : ""} ${musicActive ? "has-music" : ""}`} aria-label={dialog?.type === "contact" ? "Contact Yuhan Su" : dialog?.type === "graphic" ? "Five elements diagram" : "Photograph viewer"} onClose={() => setDialog(null)} onCancel={() => setDialog(null)} onKeyDown={(event) => { if ((dialog?.type === "photo" || dialog?.type === "gallery" || dialog?.type === "outreach") && (event.key === "ArrowLeft" || event.key === "ArrowRight")) { event.preventDefault(); movePhotograph(event.key === "ArrowLeft" ? -1 : 1); } }}>
       <button className="dialog-close icon-button" aria-label="Close dialog" onClick={() => setDialog(null)}><XIcon size={29} weight="light" /></button>
       {dialog?.type === "contact" && <div className="contact-content"><h2>Let's connect.</h2><p>Say hello — I'd love to hear from you.</p><a className="text-link contact-email" href={`mailto:${aboutMe.email}`}>{aboutMe.email}<ArrowUpRightIcon size={20} /></a><a className="text-link" href="https://github.com/Suyuhan1101" target="_blank" rel="noreferrer">View GitHub <ArrowUpRightIcon size={22} /></a></div>}

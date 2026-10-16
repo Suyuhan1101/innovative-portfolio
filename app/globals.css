@@ -20,6 +20,8 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; }
 button:disabled { cursor: default; }
 a { color: inherit; text-decoration: none; }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+/* Route headings receive focus for navigation, but are not interactive controls. */
+h1[tabindex="-1"]:focus { outline: none; }
 button.icon-button { display: inline-flex; align-items: center; justify-content: center; background: transparent; width: 44px; height: 44px; padding: 0; }
 figure, h1, h2, p { margin: 0; }
 img { max-width: 100%; }

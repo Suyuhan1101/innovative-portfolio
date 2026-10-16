@@ -33,6 +33,8 @@ npm start
 | `public/media/home-gallery/manifest.json` | 文件名、原生尺寸、裁剪范围与完整显示的比例例外。 |
 | `components/HomePage.tsx` | 首页标题、代表项目、轮播和七个入口。 |
 | `components/HomeHeading.tsx` | 首页与 Home 转场共用的标题，确保字体和换行一致。 |
+| `components/InstrumentIntro.tsx`、`components/InstrumentIntro.module.css` | 全英文、无声的 YH 仪表启动进场；圆弧、七个刻度和单次扫线，支持 Skip intro。 |
+| `components/LandscapeFragments.tsx`、`components/landscape-particles.ts`、`public/media/intro/` | 两股细小风景碎片流；Canvas 图集缓存照片局部裁切，每片独立弯曲漂移和旋转，左上右下。手机端减量，关闭动画或标签页隐藏时停止绘制。 |
 | `components/HobbyPage.tsx`、`content/hobby.ts` | Hobby 的 Music、Sport、Robotics & LEGO 三张入口卡片及独立详情；六段本地无声视频。音乐内容继续由 MusicPage 维护。 |
 | `components/GalleryPage.tsx`、`content/gallery.ts` | 43 张照片、分类筛选与两段站内视频；素材尺寸由 public/media/gallery/manifest.json 管理。 |
 | `components/Tile.tsx` | 方块图标、名称和箭头，以及保持对比度的反转色视觉层。 |
@@ -62,7 +64,9 @@ Hobby 入口按左侧 Music 大卡、右上 Sport、右下 Robotics & LEGO 排�
 
 方块移动期间保留原 CSS 宽高，使用 transform 平移／缩放，内部图标和名称也向目标样式对齐；落地时交叉渐显，并同时开始标题动画。每行显现更柔和，总错开跨度限制在 0.8 秒，避免长内容导致持续锁定。实测普通页面转场约 3–4 秒；菜单 Home 增加了方块与首页标题的交接，完整流程约 4.3 秒。
 
-开场文字用响应式字号保持单行，和页眉共用字体、相对字距、行高。栏目标题通过从左向右的遮罩揭开，同时从左侧轻微移向最终位置。栏目页点击页眉欢迎文字返回时，浮动层保留原栏目的身份，并按 `data-page` 测量首页对应方块；到位后按从上到下显现首页，网格完成显现时再交接。
+2026-10-16 的进场采用个人化仪表启动：初始为 YH、Yuhan Su 与 Enter my world；点击或按 Enter／空格后，细圆弧、七个刻度与一道绿色扫线分阶段出现，再显示 Welcome to My World。欢迎语随后缩小并飞到左上角页眉，按页眉真实位置与文字宽度对齐，绿色渐变为页眉文字色，落定后揭开原目标页面。启动 1.95 秒，文字移动 0.85 秒，淡出 0.2 秒，整体约 3 秒。播放时提供 Skip intro，Animations Off 直接淡入网站，均跳过文字飞行动画。开场全英文、无声，不包含登录、身份验证或虚假数据状态。此前的照片拼贴和鼠标揭幕已撤销。设计和验收见 `docs/design/instrument-intro.md`、`docs/instrument-intro-qa.md`。
+
+栏目标题通过从左向右的遮罩揭开，同时从左侧轻微移向最终位置。栏目页点击页眉欢迎文字返回时，浮动层保留原栏目的身份，并按 `data-page` 测量首页对应方块；到位后按从上到下显现首页，网格完成显现时再交接。
 
 菜单 Home 以真实 `.home-title` 为目标：移动层的背景独立展开，图标层均匀缩放，随后以从左向右揭开的标题接替。`HomeHeading` 与测量所得的字体、相对行高、字距保证克隆标题与目标标题重合。首页内容恢复时保留克隆标题，介绍区域落定后才交接。没有不可见的 Home 落点，也不增加首页方块。在首页选择菜单 Home 时重置已有渐显样式；异常恢复清除残留的透明度、位移与遮罩。
 

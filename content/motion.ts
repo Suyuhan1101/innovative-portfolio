@@ -1,8 +1,9 @@
 // A relaxed, continuous rhythm. Durations are seconds; line delays are capped
 // so adding longer content doesn't leave the page locked for an excessive time.
 export const motionTiming = {
-  welcomeMove: 1.25,
-  introExit: 0.24,
+  introBoot: 1.95,
+  welcomeMove: 0.85,
+  introExit: 0.2,
   headerEnter: 0.36,
   headerStagger: 0.065,
   homeEnter: 0.7,

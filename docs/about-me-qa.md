@@ -44,3 +44,12 @@ TypeScript 与 Next.js 生产构建通过，普通预览标签页无浏览器 er
 - 本地生产构建通过（含 TypeScript）；实际浏览器检查 1280px 和 320px，手机页面 clientWidth / scrollWidth 均为 305px，所有条目无内部横向溢出。
 - 手机长标题、FTC 两条成绩、认证和艺术条目均完整换行；浏览器无 error 级别日志。没有新增运行时依赖。
 - 截图：`qa/about-honors-desktop.png`、`qa/about-honors-mobile.png`、`qa/about-honors-mobile-certifications.png`。
+
+## 2026-10-15：荣誉展厅视觉升级
+
+- 按用户“花哨、华丽”的新要求改为深绿色与香槟金的展厅；FTC 铜色第三名、银色第二名奖牌、USACO 银色徽章、CITI 证书签章、钢琴八级和国画四级数字装饰分别对应实际内容。
+- 11 个条目、所有年份、两次 FTC 成绩和原有评选说明保留；装饰没有冒充官方奖项标识，均对辅助技术隐藏。所有内容常显，不依赖悬停或点击展开。
+- 实际浏览器检查 1280、768、320px；320px clientWidth / scrollWidth 均为 305px，768px 均为 753px，奖项名称与说明无内部横向溢出。
+- 悬停实测扫光 animationDuration 为 1.15s，卡片轻微上移；扫光在正文与双奖牌背后，避免遮盖文字。
+- 通过站内菜单切换 Reduced，实测根节点 data-motion=reduced，奖杯 animationName=none、卡片 transitionDuration=0s；测试后恢复 Full。视口覆盖也恢复默认。
+- 本地生产构建通过（含 TypeScript），无新增运行时依赖。截图见 `qa/honors-showcase-desktop.png`、`qa/honors-showcase-certificates.png`、`qa/honors-showcase-tablet.png`、`qa/honors-showcase-mobile.png`、`qa/honors-showcase-mobile-arts.png`。

@@ -25,11 +25,13 @@ export const aboutMedia = {
   ev3: "/media/about-me/ev3-sumo-reference.png",
 } as const;
 
-type AboutHonor = {
+export type AboutHonor = {
+  id: string;
+  symbol: "robotics" | "academics" | "computing" | "innovation" | "service" | "research" | "piano" | "painting";
   title: string;
   years: string;
   description?: string;
-  results?: string[];
+  results?: { event: string; year: string; award: string; place: string; metal: "bronze" | "silver" }[];
 };
 
 type AboutHonorGroup = {
@@ -44,44 +46,50 @@ export const aboutHonors: AboutHonorGroup[] = [
     title: "Honors & awards",
     entries: [
       {
+        id: "ftc-robotics",
+        symbol: "robotics",
         title: "FTC Robotics — Summit Knights 14365",
         years: "2024–2025",
         description: "Team awards at Ohio FTC State Championship qualifiers.",
         results: [
-          "OH Miami University Qualifier 2024 — Inspire Award, 3rd Place",
-          "Cincinnati Walnut Hills Qualifier 2025 — Inspire Award, 2nd Place",
+          { event: "OH Miami University Qualifier", year: "2024", award: "Inspire Award", place: "3rd Place", metal: "bronze" },
+          { event: "Cincinnati Walnut Hills Qualifier", year: "2025", award: "Inspire Award", place: "2nd Place", metal: "silver" },
         ],
       },
       {
+        id: "directors-list",
+        symbol: "academics",
         title: "Director’s List with High Honors",
         years: "2024–2025",
         description: "Awarded to the top 10% of students by GPA.",
       },
-      { title: "USA Computing Olympiad (USACO) — Silver Award", years: "2026" },
-      { title: "Conrad Challenge — Innovator Award", years: "2026" },
+      { id: "usaco", symbol: "computing", title: "USA Computing Olympiad (USACO) — Silver Award", years: "2026" },
+      { id: "conrad", symbol: "innovation", title: "Conrad Challenge — Innovator Award", years: "2026" },
       {
+        id: "nhs",
+        symbol: "service",
         title: "National Honor Society",
         years: "2026",
         description: "Recognized for high GPA, leadership, service and character.",
       },
-      { title: "AP Scholar with Distinction", years: "2026" },
+      { id: "ap-scholar", symbol: "academics", title: "AP Scholar with Distinction", years: "2026" },
     ],
   },
   {
     id: "research-certifications",
     title: "Research certifications",
     entries: [
-      { title: "Good Clinical Practice", years: "2026", description: "CITI Program certification" },
-      { title: "Human Subjects Research", years: "2026", description: "CITI Program certification" },
-      { title: "Clinical Research Coordinator Foundations", years: "2026", description: "CITI certificate" },
+      { id: "good-clinical-practice", symbol: "research", title: "Good Clinical Practice", years: "2026", description: "CITI Program certification" },
+      { id: "human-subjects-research", symbol: "research", title: "Human Subjects Research", years: "2026", description: "CITI Program certification" },
+      { id: "research-coordinator", symbol: "research", title: "Clinical Research Coordinator Foundations", years: "2026", description: "CITI certificate" },
     ],
   },
   {
     id: "music-and-arts",
     title: "Music & arts",
     entries: [
-      { title: "Grade 8 Piano", years: "2023", description: "China Conservatory of Music" },
-      { title: "Grade 4 Award in Chinese Landscape Painting", years: "2023" },
+      { id: "piano-grade-eight", symbol: "piano", title: "Grade 8 Piano", years: "2023", description: "China Conservatory of Music" },
+      { id: "landscape-painting", symbol: "painting", title: "Grade 4 Award in Chinese Landscape Painting", years: "2023" },
     ],
   },
 ];

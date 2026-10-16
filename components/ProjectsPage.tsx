@@ -53,7 +53,6 @@ function ResearchPresentation({ visible }: { visible: boolean }) {
 export function ProjectCaseStudy({ id, onPhoto }: { id: string; onPhoto: (index: number) => void }) {
       const project = projectCases.find((item) => item.id === id)!;
       return <section className={`${styles.content} ${styles.caseStudy}`} aria-labelledby={`${project.id}-title`}>
-        <div className={styles.hero} data-reveal><ProjectFigure image={project.preview} detail /></div>
         <div className={styles.caseOverview}>
           <div className={styles.caseCopy}>
             <div className={styles.projectMeta} data-reveal><span className={styles.status}>{project.status}</span><span>{project.dates}</span></div>
@@ -73,6 +72,7 @@ export function ProjectCaseStudy({ id, onPhoto }: { id: string; onPhoto: (index:
             {project.detailImage && <ProjectFigure image={project.detailImage} detail />}
             {project.id === "clinic" && <HisGuidelinesGallery />}
             {project.id === "ards" && <><ResearchPresentation visible /><div className={styles.artifactLinks}><button type="button" className={`text-link ${styles.posterButton}`} onClick={() => onPhoto(4)}>View research poster<ArrowUpRightIcon size={18} /></button></div></>}
+            {project.id === "muon" && <div className={styles.closingFigure} data-reveal><ProjectFigure image={project.preview} detail /></div>}
         </div>
       </section>;
 

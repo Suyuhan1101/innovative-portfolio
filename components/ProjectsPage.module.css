@@ -1,7 +1,7 @@
 .content { font-size: var(--text-body); line-height: 1.65; }
 .caseStudy { min-width: 0; }
-.hero { max-width: 850px; margin: 0 auto 34px; }
-.hero .detailFigure { margin-top: 0; }
+.closingFigure { max-width: 850px; margin: 28px auto 0; }
+.closingFigure .detailFigure { margin-top: 0; }
 .caseOverview { max-width: 78ch; }
 .caseOverview > div, .caseCopy { min-width: 0; }
 .preview > a { display: grid; place-items: center; padding: 12px; background: #f0efe7; aspect-ratio: 16 / 10; }

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "swimming-01",
+    "src": "/media/hobby/swimming-01.mp4",
+    "poster": "/media/hobby/swimming-01.jpg",
+    "width": 960,
+    "height": 544,
+    "duration": 138.75
+  },
+  {
+    "id": "swimming-02",
+    "src": "/media/hobby/swimming-02.mp4",
+    "poster": "/media/hobby/swimming-02.jpg",
+    "width": 960,
+    "height": 544,
+    "duration": 250.4
+  },
+  {
+    "id": "swimming-03",
+    "src": "/media/hobby/swimming-03.mp4",
+    "poster": "/media/hobby/swimming-03.jpg",
+    "width": 960,
+    "height": 540,
+    "duration": 215.12
+  }
+]

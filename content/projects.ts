@@ -27,7 +27,7 @@ export const projectCases: ProjectCase[] = [
     status: "Research in progress",
     technologies: ["Python", "JSON schema", "LLM annotation", "LLM judge"],
     summary: "Identifying ARDS-related chest imaging findings in free-text radiology reports through schema rules, explicit exclusions and an independent judge prompt.",
-    preview: { src: "/media/projects/ards/pipeline.png", width: 3000, height: 1350, alt: "ARDS research workflow from report selection to annotation, independent judging and schema refinement", caption: "The extraction and evaluation workflow." },
+    preview: { src: "/media/projects/ards/pipeline.svg", width: 3000, height: 1350, alt: "ARDS research workflow from report selection to annotation, independent judging and schema refinement", caption: "The extraction and evaluation workflow." },
     sections: [
       { heading: "My contribution", paragraphs: [
         "Through my school's Schiff Family Science Research Institute, I joined a research team studying how LLMs could identify pulmonary findings in MIMIC-IV radiology reports.",

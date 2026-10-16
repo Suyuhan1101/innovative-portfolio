@@ -33,16 +33,16 @@ npm start
 | `public/media/home-gallery/manifest.json` | 文件名、原生尺寸、裁剪范围与完整显示的比例例外。 |
 | `components/HomePage.tsx` | 首页标题、代表项目、轮播和七个入口。 |
 | `components/HomeHeading.tsx` | 首页与 Home 转场共用的标题，确保字体和换行一致。 |
-| `components/HobbyPage.tsx`、`content/hobby.ts` | Hobby 的音乐、机器人和 LEGO 分类，以及三段无声视频。音乐内容继续由 MusicPage 维护。 |
+| `components/HobbyPage.tsx`、`content/hobby.ts` | Hobby 的 Music、Sport、Robotics & LEGO 三张入口卡片及独立详情；六段本地无声视频。音乐内容继续由 MusicPage 维护。 |
 | `components/GalleryPage.tsx`、`content/gallery.ts` | 43 张照片、分类筛选与两段站内视频；素材尺寸由 public/media/gallery/manifest.json 管理。 |
 | `components/Tile.tsx` | 方块图标、名称和箭头，以及保持对比度的反转色视觉层。 |
 | `components/SectionPage.tsx` | 各栏目内容与媒体布局。 |
 | `components/PortfolioShell.tsx` | 持久页眉、开场、导航、菜单、联系方式和图片弹窗。 |
 | `app/portfolio.css`、`app/globals.css` | 共享布局、响应式断点、颜色和字体规则。 |
 
-独立栏目路由为 `/about-me`、`/academic`、`/projects`、`/skills`、`/gallery`、`/hobby`、`/community`；首页为 `/`。`/travel` 永久重定向至 `/community`，原 `/music` 永久重定向至 `/hobby`。Projects 和 Community 各有三个独立详情网址，入口数据在 `content/case-studies.ts`。页面刷新可以直接进入相应栏目或详情，站内导航保留已进入状态。
+独立栏目路由为 `/about-me`、`/academic`、`/projects`、`/skills`、`/gallery`、`/hobby`、`/community`；首页为 `/`。`/travel` 永久重定向至 `/community`，原 `/music` 永久重定向至 `/hobby`。Projects、Community 和 Hobby 各有三个独立详情网址，入口数据在 `content/case-studies.ts`，共用卡片布局、详情外框和淡入淡出转场。Hobby 详情为 `/hobby/music`、`/hobby/sport`、`/hobby/robotics-lego`。页面刷新可以直接进入相应栏目或详情，站内导航保留已进入状态。
 
-Hobby 默认显示 Music，保留钢琴视频、播放列表和共享播放器。Robotics 显示比赛录像，LEGO 显示机械臂与行走机器人；视频按原比例排列，手机上竖屏视频逐个显示。新视频的音轨已从文件中移除，原件保存在忽略的 `assets/originals/hobby`；`scripts/prepare-hobby-videos.py` 可重新生成无声 MP4 和封面并逐帧验证，结果见 `docs/media/hobby-videos.json`。视频按需加载，切换分类或离开页面会卸载并停止播放。
+Hobby 入口按左侧 Music 大卡、右上 Sport、右下 Robotics & LEGO 排列，直接复用 Projects / Community 的 `CaseStudyGallery`。Music 详情保留钢琴视频、播放列表和共享播放器；Sport 详情显示三段游泳视频；Robotics & LEGO 合并比赛录像、机械臂与行走机器人。视频按原比例排列，手机上竖屏视频逐个显示。新视频的音轨已从文件中移除，原件保存在忽略的 `assets/originals/hobby`；`scripts/prepare-hobby-videos.py` 和 `scripts/prepare-swimming-videos.py` 可重新生成无声 MP4、封面及校验报告，结果见 `docs/media/hobby-videos.json` 与 `docs/media/swimming-videos.json`。视频按需加载，离开详情页会卸载并停止播放，返回入口恢复卡片焦点及滚动位置。
 
 原图备份在 `assets/originals/home-gallery`。`scripts/prepare-home-gallery.ps1` 只做原生像素裁剪并核对像素，不改变原图尺寸。现有素材已经准备完成，通常无需重跑。页面通过 Next Image 生成浏览器所需的显示版本，项目中的原图和裁剪图保持原始像素。
 
@@ -70,7 +70,7 @@ Hobby 默认显示 Music，保留钢琴视频、播放列表和共享播放器�
 
 菜单保留底层路由、滚动位置与轮播项；关闭后恢复滚动和焦点。菜单和图片弹窗支持键盘；菜单支持 Escape 和 Tab 焦点循环。浏览器前进／后退恢复相应栏目，使用简化恢复，不重播欢迎页。
 
-开发与生产默认均使用完整动效，保持已确认的舒缓节奏。欢迎页下方和菜单底部的 Animations 选项可选择 Full、Reduced 或 Follow system。选择保存在当前网站的 localStorage（`portfolio:motion-preference`），刷新和站内切换均会保留；存储不可用时，当前访问仍能正常切换。选择 Follow system 后才自动遵循系统减少动态效果偏好。
+开发与生产默认均使用完整动效，保持已确认的舒缓节奏。欢迎页下方和菜单底部的 Animations 使用滑动开关：On 为完整动效，Off 为减少动画模式。开关使用原生 checkbox 和 switch 语义，支持点击标签、空格键切换及菜单 Tab 焦点循环。选择保存在当前网站的 localStorage（`portfolio:motion-preference`），刷新和站内切换均会保留；存储不可用时，当前访问仍能正常切换。旧版保存的 Follow system 偏好仍兼容系统设置，手动切换开关后保存为明确的 full 或 reduced。
 
 JS 转场、轮播和组件 CSS 共用解析后的 `data-motion`，避免显式选择 Full 后仍被组件内的系统媒体查询覆盖。Reduced 保留简短淡入淡出并关闭卡片等装饰过渡。动画执行期间禁用偏好选项，菜单键盘焦点循环包含该选项。
 
@@ -84,6 +84,6 @@ Projects 使用已提供的研究事实，明确区分独立提示的 LLM judge 
 
 ## 部署下一步
 
-已确认用户的 Vercel 项目导入本 GitHub 仓库。本地生产构建已通过，生成 16 个页面。先推送工作分支并核对预览，再将同一版本正式发布至 yhansu.com。使用平台的 Next.js 构建检测；`.vercelignore` 排除本地原件、文档和素材准备脚本。
+已确认用户的 Vercel 项目导入本 GitHub 仓库。本地生产构建已通过，生成 21 个页面。推送 `main` 会自动发布至 yhansu.com。使用平台的 Next.js 构建检测；`.vercelignore` 排除本地原件、文档和素材准备脚本。游泳视频的页面数据在 `content/swimming-videos.json`，完整素材校验记录在 `docs/media/swimming-videos.json`，由准备脚本同时生成，页面不依赖被部署排除的文档目录。
 
 DNS 记录应以该 Vercel 项目实际给出的域名设置为准，先取得并验证部署，之后再改 Cloudflare，保留无关记录。实际云端结果单独记录，不以本地构建通过代替部署成功。

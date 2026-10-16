@@ -30,6 +30,17 @@
     "CopyVerified": true
   },
   {
+    "Source": "D:/MIMIC program/outputs/poster_pipeline_end_to_end.png",
+    "File": "public/media/projects/ards/pipeline.svg",
+    "Width": 3000,
+    "Height": 1350,
+    "Bytes": 10062,
+    "Purpose": "Layout-corrected research workflow diagram used by the portfolio",
+    "SHA256": "29A77A277AE2736D8C020A17D12D46E4627E71F5899DC2D817921DDC19ADD165",
+    "DerivedFrom": "public/media/projects/ards/pipeline.png",
+    "Transformation": "Recreated as editable SVG, preserving all six steps and feedback content while separating step numbers, headings, body text and icons."
+  },
+  {
     "Source": "D:/MIMIC program/outputs/evaluation_results_poster.png",
     "File": "public/media/projects/ards/evaluation.png",
     "Width": 3000,

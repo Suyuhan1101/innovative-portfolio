@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3000" height="1350" viewBox="0 0 3000 1350" role="img" aria-labelledby="pipeline-title pipeline-description">
+  <title id="pipeline-title">End-to-End Pipeline for ARDS Chest Imaging Extraction</title>
+  <desc id="pipeline-description">Report selection, JSON schema, annotation tool, LLM judge, evaluation, and schema update. Judge errors and metric tradeoffs feed back into targeted JSON schema updates.</desc>
+  <defs>
+    <marker id="next-arrow" viewBox="0 0 20 20" refX="18" refY="10" markerWidth="24" markerHeight="24" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 20 10 L 0 20 Z" fill="#7b878e"/>
+    </marker>
+    <marker id="feedback-arrow" viewBox="0 0 20 20" refX="18" refY="10" markerWidth="30" markerHeight="30" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 20 10 L 0 20 Z" fill="#00a0b5"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #2f3337; }
+      .step-frame { stroke-width: 5; }
+      .step-title { font-size: 40px; font-weight: 700; text-anchor: middle; }
+      .step-body { font-size: 29px; text-anchor: middle; fill: #41484d; }
+      .step-number { font-size: 29px; font-weight: 700; text-anchor: middle; fill: white; }
+      .step-icon { fill: none; stroke: currentColor; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .connector { fill: none; stroke: #7b878e; stroke-width: 6; marker-end: url(#next-arrow); }
+      .artifact text { font-size: 24px; fill: #566066; }
+    </style>
+  </defs>
+
+  <rect width="3000" height="1350" fill="white"/>
+  <text x="110" y="112" font-size="62" font-weight="700">End-to-End Pipeline for ARDS Chest Imaging Extraction</text>
+  <text x="110" y="172" font-size="31" fill="#566066">JSON schema annotation, LLM judge-based evaluation, and targeted schema refinement</text>
+  <rect x="110" y="205" width="2780" height="10" rx="5" fill="#9ad1dc"/>
+
+  <!-- Separate vertical bands reserve space for the number, title, body, and icon. -->
+  <g data-step="1" transform="translate(110 300)">
+    <rect x="8" y="10" width="395" height="500" rx="25" fill="#dce6e9"/>
+    <rect class="step-frame" width="395" height="500" rx="25" fill="#edf7fd" stroke="#2d95d9"/>
+    <circle cx="197.5" cy="58" r="33" fill="#2d95d9"/>
+    <text class="step-number" x="197.5" y="68">01</text>
+    <text class="step-title" x="197.5" y="143">Report Selection</text>
+    <text class="step-body" x="197.5" y="215">
+      <tspan x="197.5">MIMIC-IV-Note</tspan>
+      <tspan x="197.5" dy="44">chest radiology reports</tspan>
+      <tspan x="197.5" dy="44">oxygenation-filtered set</tspan>
+      <tspan x="197.5" dy="44">for later tests</tspan>
+    </text>
+    <g class="step-icon" style="color: #2d95d9" transform="translate(160 408)">
+      <rect width="75" height="52"/>
+      <path d="M 14 16 H 60 M 14 30 H 46"/>
+    </g>
+  </g>
+
+  <g data-step="2" transform="translate(585 300)">
+    <rect x="8" y="10" width="395" height="500" rx="25" fill="#dce6e9"/>
+    <rect class="step-frame" width="395" height="500" rx="25" fill="#f1f9e8" stroke="#79bd16"/>
+    <circle cx="197.5" cy="58" r="33" fill="#79bd16"/>
+    <text class="step-number" x="197.5" y="68">02</text>
+    <text class="step-title" x="197.5" y="143">JSON Schema</text>
+    <text class="step-body" x="197.5" y="215">
+      <tspan x="197.5">positive imaging labels</tspan>
+      <tspan x="197.5" dy="44">excluded-cause rules</tspan>
+      <tspan x="197.5" dy="44">negation + attribution</tspan>
+      <tspan x="197.5" dy="44">constraints</tspan>
+    </text>
+    <g class="step-icon" style="color: #79bd16" transform="translate(161.5 408)">
+      <path d="M 22 0 C 9 0 10 6 10 16 C 10 23 5 26 0 26 C 5 26 10 29 10 36 C 10 46 9 52 22 52 M 50 0 C 63 0 62 6 62 16 C 62 23 67 26 72 26 C 67 26 62 29 62 36 C 62 46 63 52 50 52"/>
+    </g>
+  </g>
+
+  <g data-step="3" transform="translate(1060 300)">
+    <rect x="8" y="10" width="395" height="500" rx="25" fill="#dce6e9"/>
+    <rect class="step-frame" width="395" height="500" rx="25" fill="#fff5e8" stroke="#fa8b20"/>
+    <circle cx="197.5" cy="58" r="33" fill="#fa8b20"/>
+    <text class="step-number" x="197.5" y="68">03</text>
+    <text class="step-title" x="197.5" y="143">Annotation Tool</text>
+    <text class="step-body" x="197.5" y="215">
+      <tspan x="197.5">applies schema rules</tspan>
+      <tspan x="197.5" dy="44">extracts evidence spans</tspan>
+      <tspan x="197.5" dy="44">writes structured</tspan>
+      <tspan x="197.5" dy="44">XML annotations</tspan>
+    </text>
+    <g class="step-icon" style="color: #fa8b20" transform="translate(152.5 408)">
+      <rect width="90" height="52"/>
+      <path d="M 14 16 H 76 M 14 33 H 62"/>
+    </g>
+  </g>
+
+  <g data-step="4" transform="translate(1535 300)">
+    <rect x="8" y="10" width="395" height="500" rx="25" fill="#dce6e9"/>
+    <rect class="step-frame" width="395" height="500" rx="25" fill="#f5effd" stroke="#8057cb"/>
+    <circle cx="197.5" cy="58" r="33" fill="#8057cb"/>
+    <text class="step-number" x="197.5" y="68">04</text>
+    <text class="step-title" x="197.5" y="143">LLM Judge</text>
+    <text class="step-body" x="197.5" y="215">
+      <tspan x="197.5">reviews report + XML</tspan>
+      <tspan x="197.5" dy="44">assigns verdict</tspan>
+      <tspan x="197.5" dy="44">captures evidence</tspan>
+      <tspan x="197.5" dy="44">and reason</tspan>
+    </text>
+    <g class="step-icon" style="color: #8057cb" transform="translate(153.5 406)">
+      <path d="M 44 0 V 56 M 25 56 H 63 M 9 18 H 79 M 9 18 L 0 43 H 18 Z M 79 18 L 70 43 H 88 Z"/>
+    </g>
+  </g>
+
+  <g data-step="5" transform="translate(2010 300)">
+    <rect x="8" y="10" width="395" height="500" rx="25" fill="#dce6e9"/>
+    <rect class="step-frame" width="395" height="500" rx="25" fill="#fdf0f5" stroke="#ed3c7c"/>
+    <circle cx="197.5" cy="58" r="33" fill="#ed3c7c"/>
+    <text class="step-number" x="197.5" y="68">05</text>
+    <text class="step-title" x="197.5" y="143">Evaluation</text>
+    <text class="step-body" x="197.5" y="215">
+      <tspan x="197.5">TP / FP / FN / TN</tspan>
+      <tspan x="197.5" dy="44">precision, recall, F1</tspan>
+      <tspan x="197.5" dy="44">error types</tspan>
+      <tspan x="197.5" dy="44">confidence</tspan>
+    </text>
+    <g class="step-icon" style="color: #ed3c7c" transform="translate(156.5 408)">
+      <path d="M 0 0 H 82 V 54 H 0 Z M 27 0 V 54 M 55 0 V 54 M 0 18 H 82 M 0 36 H 82"/>
+      <path d="M 0 0 H 27 V 18 H 0 Z M 27 18 H 55 V 36 H 27 Z M 55 36 H 82 V 54 H 55 Z" fill="currentColor" stroke="none"/>
+    </g>
+  </g>
+
+  <g data-step="6" transform="translate(2485 300)">
+    <rect x="8" y="10" width="395" height="500" rx="25" fill="#dce6e9"/>
+    <rect class="step-frame" width="395" height="500" rx="25" fill="#edf9f7" stroke="#00a0b5"/>
+    <circle cx="197.5" cy="58" r="33" fill="#00a0b5"/>
+    <text class="step-number" x="197.5" y="68">06</text>
+    <text class="step-title" x="197.5" y="143">Schema Update</text>
+    <text class="step-body" x="197.5" y="215">
+      <tspan x="197.5">inspect failure modes</tspan>
+      <tspan x="197.5" dy="44">tighten or relax rules</tspan>
+      <tspan x="197.5" dy="44">rerun annotation</tspan>
+      <tspan x="197.5" dy="44">and judging</tspan>
+    </text>
+    <g class="step-icon" style="color: #00a0b5" transform="translate(153.5 404)">
+      <path d="M 78 19 A 43 29 0 1 0 78 49"/>
+      <path d="M 61 14 L 82 22 L 76 1" fill="currentColor" stroke="none"/>
+    </g>
+  </g>
+
+  <g aria-label="Sequential workflow connections">
+    <path class="connector" d="M 524 550 H 568"/>
+    <path class="connector" d="M 999 550 H 1043"/>
+    <path class="connector" d="M 1474 550 H 1518"/>
+    <path class="connector" d="M 1949 550 H 1993"/>
+    <path class="connector" d="M 2424 550 H 2468"/>
+  </g>
+
+  <g data-feedback="true">
+    <path d="M 2682.5 824 V 985 H 782.5 V 822" fill="none" stroke="#00a0b5" stroke-width="6" marker-end="url(#feedback-arrow)"/>
+    <rect x="895" y="953" width="1680" height="64" rx="24" fill="#f1fbfb" stroke="#00a0b5" stroke-width="2.5"/>
+    <text x="1735" y="996" text-anchor="middle" font-size="31" font-weight="700">Judge errors and metric tradeoffs drive targeted JSON schema updates</text>
+  </g>
+
+  <text x="110" y="1130" font-size="36" font-weight="700">Evaluation artifacts</text>
+  <g class="artifact" transform="translate(110 1160)">
+    <rect width="210" height="54" rx="20" fill="#f7fafb" stroke="#b3c8d0" stroke-width="2"/>
+    <circle cx="26" cy="27" r="8" fill="#8057cb"/>
+    <text x="44" y="35">judge verdict</text>
+  </g>
+  <g class="artifact" transform="translate(342 1160)">
+    <rect width="228" height="54" rx="20" fill="#f7fafb" stroke="#b3c8d0" stroke-width="2"/>
+    <circle cx="26" cy="27" r="8" fill="#2d95d9"/>
+    <text x="44" y="35">evidence span</text>
+  </g>
+  <g class="artifact" transform="translate(592 1160)">
+    <rect width="150" height="54" rx="20" fill="#f7fafb" stroke="#b3c8d0" stroke-width="2"/>
+    <circle cx="26" cy="27" r="8" fill="#fa8b20"/>
+    <text x="44" y="35">reason</text>
+  </g>
+  <g class="artifact" transform="translate(764 1160)">
+    <rect width="176" height="54" rx="20" fill="#f7fafb" stroke="#b3c8d0" stroke-width="2"/>
+    <circle cx="26" cy="27" r="8" fill="#ed3c7c"/>
+    <text x="44" y="35">error type</text>
+  </g>
+  <g class="artifact" transform="translate(962 1160)">
+    <rect width="255" height="54" rx="20" fill="#f7fafb" stroke="#b3c8d0" stroke-width="2"/>
+    <circle cx="26" cy="27" r="8" fill="#79bd16"/>
+    <text x="44" y="35">confusion matrix</text>
+  </g>
+  <g class="artifact" transform="translate(1239 1160)">
+    <rect width="244" height="54" rx="20" fill="#f7fafb" stroke="#b3c8d0" stroke-width="2"/>
+    <circle cx="26" cy="27" r="8" fill="#00a0b5"/>
+    <text x="44" y="35">schema revision</text>
+  </g>
+  <rect x="110" y="1260" width="2780" height="10" rx="5" fill="#ed3c7c"/>
+  <rect x="830" y="1260" width="1400" height="10" rx="5" fill="#00a0b5"/>
+  <rect x="2230" y="1260" width="660" height="10" rx="5" fill="#79bd16"/>
+</svg>

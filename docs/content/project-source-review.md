@@ -12,6 +12,8 @@
 
 图片直接复制，未裁剪或重绘。五张图的尺寸、来源、SHA256 和复制校验结果记录于 `docs/media/projects-manifest.json`。未公开源目录中的环境配置、访问凭据、临床报告、原始研究 CSV、数据库、可执行文件或完整代码树。
 
+2026-10-15 排版修正：ARDS 工作流的原 PNG 内存在标题越框和正文与图标重叠。作品集现改用 `public/media/projects/ards/pipeline.svg`：依据原图保留六步内容、配色、顺序和 schema 反馈关系，将编号、标题、正文、图标分区排布。SVG 用于项目卡片预览；后续详情布局调整已移除详情页首的工作流图。原 PNG 保留作来源记录，研究源目录未改动。
+
 ## Clinic
 
 README 确认中文项目名为「京城易安中医门诊管理系统」。前端 React / TypeScript，后端 Java 17 / Spring Boot / PostgreSQL，并有 Electron Windows 客户端。

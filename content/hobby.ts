@@ -1,3 +1,6 @@
+import swimmingMedia from "./swimming-videos.json";
+import { slides } from "./media";
+
 export type HobbyVideo = {
   id: string;
   title: string;
@@ -42,3 +45,34 @@ export const legoVideos: HobbyVideo[] = [
     duration: "0:10",
   },
 ];
+
+export const swimmingVideos: HobbyVideo[] = swimmingMedia.map((clip, index) => ({
+  id: clip.id,
+  title: `Swimming · ${String(index + 1).padStart(2, "0")}`,
+  description: ["An indoor swim meet.", "A view across the racing lanes.", "A poolside recording."][index],
+  src: clip.src,
+  poster: clip.poster,
+  width: clip.width,
+  height: clip.height,
+  duration: `${Math.floor(clip.duration / 60)}:${String(Math.floor(clip.duration % 60)).padStart(2, "0")}`,
+}));
+
+const musicImage = slides.find((slide) => slide.name === "04-orchestra")!;
+
+export const hobbyCategories = [
+  {
+    id: "music", slug: "music", title: "Music",
+    description: "Piano, performances, and the music I like to play and listen to.",
+    image: { src: musicImage.src, alt: musicImage.alt, position: "50% 45%" },
+  },
+  {
+    id: "sport", slug: "sport", title: "Sport",
+    description: "Three swimming videos from the pool.",
+    image: { src: swimmingVideos[0].poster, alt: "Swimming lanes at an indoor pool" },
+  },
+  {
+    id: "robotics-lego", slug: "robotics-lego", title: "Robotics & LEGO",
+    description: "From a robotics competition to a LEGO robotic arm and walking robot.",
+    image: { src: roboticsVideo.poster, alt: "Robotics teams and their machines on the competition floor" },
+  },
+] as const;

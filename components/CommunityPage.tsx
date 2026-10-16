@@ -62,10 +62,6 @@ function OutreachPhoto({ index, onOpen }: { index: number; onOpen: (index: numbe
 export function CommunityCaseStudy({ id, onOutreachPhoto }: { id: string; onOutreachPhoto: (index: number) => void }) {
   return <div className={styles.content}>
     {id === "tutoring" && <section className={styles.tutoring} aria-labelledby="community-tutoring-title">
-      <figure className={styles.chapterImage} data-reveal>
-        <Image src={communityTutoring.image.src} alt={communityTutoring.image.alt} width={communityTutoring.image.width} height={communityTutoring.image.height} unoptimized />
-        <figcaption>{communityTutoring.image.caption}</figcaption>
-      </figure>
       <div className={styles.tutoringHeader}>
         <div>
           <div className={styles.role} data-reveal><span>{communityTutoring.role}</span><span>{communityTutoring.location}</span></div>
@@ -102,7 +98,6 @@ export function CommunityCaseStudy({ id, onOutreachPhoto }: { id: string; onOutr
     </section>)}</div></>}
 
     {id === "outreach" && <section className={styles.outreach} aria-labelledby="community-outreach-title">
-      <div className={styles.outreachHero}><OutreachPhoto index={0} onOpen={onOutreachPhoto} /></div>
       <div className={styles.outreachHeader}>
         <div><h2 id="community-outreach-title" data-reveal>{communityOutreach.title}</h2><p className={styles.outreachMeta} data-reveal>{communityOutreach.location}<span>{communityOutreach.schedule}</span></p></div>
         <RevealText text={communityOutreach.description} />

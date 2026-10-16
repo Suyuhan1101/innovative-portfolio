@@ -1,0 +1,53 @@
+[
+  {
+    "id": "swimming-01",
+    "src": "/media/hobby/swimming-01.mp4",
+    "poster": "/media/hobby/swimming-01.jpg",
+    "width": 960,
+    "height": 544,
+    "encoded_height": 544,
+    "duration": 138.75,
+    "bytes": 20872532,
+    "source_sha256": "386f6a62e4cd14b7b7f6dd0b2726fbd33fd4695229f154e71a9bd78174db2f10",
+    "web_sha256": "172484f9abba17839a72d0ac5b445eb05e0a9a6e46b8f51b967abe36b5b11e44",
+    "source_video_sha256": "60f5dfd30811ea764af14234545fdb36d096b458c2b547197cf52f9df465d12a",
+    "web_video_sha256": "60f5dfd30811ea764af14234545fdb36d096b458c2b547197cf52f9df465d12a",
+    "verified_identical_video_stream": true,
+    "audio_streams": 0,
+    "fast_start": true
+  },
+  {
+    "id": "swimming-02",
+    "src": "/media/hobby/swimming-02.mp4",
+    "poster": "/media/hobby/swimming-02.jpg",
+    "width": 960,
+    "height": 544,
+    "encoded_height": 544,
+    "duration": 250.4,
+    "bytes": 37632088,
+    "source_sha256": "a2fe61c5a68e44b7daf7e8629310556a806409bd3003d7a540ea70f0fc55a915",
+    "web_sha256": "1fcfa23bdcdb8c4d89fd0304bef59f8390b09b79f39b87354aa33e30d31598d5",
+    "source_video_sha256": "28891af2ca551a4f0686c46376e534ef2275fc01d81e290d8b1664bb886770a7",
+    "web_video_sha256": "28891af2ca551a4f0686c46376e534ef2275fc01d81e290d8b1664bb886770a7",
+    "verified_identical_video_stream": true,
+    "audio_streams": 0,
+    "fast_start": true
+  },
+  {
+    "id": "swimming-03",
+    "src": "/media/hobby/swimming-03.mp4",
+    "poster": "/media/hobby/swimming-03.jpg",
+    "width": 960,
+    "height": 540,
+    "encoded_height": 544,
+    "duration": 215.12,
+    "bytes": 33881563,
+    "source_sha256": "2cc6534c8a08471ed411d46eba176fc87db343dd0207088471ac9898ba9c440d",
+    "web_sha256": "4e06fd299f21dbb4b1801703671163894c833aac4c99234c4043bc5a1383923c",
+    "source_video_sha256": "19eb9551120ddd629afff84fb58d15589e91789fe9c22acd6e9b020ac88acf19",
+    "web_video_sha256": "19eb9551120ddd629afff84fb58d15589e91789fe9c22acd6e9b020ac88acf19",
+    "verified_identical_video_stream": true,
+    "audio_streams": 0,
+    "fast_start": true
+  }
+]

@@ -4,9 +4,6 @@
 .tutoringHeader h2 { font: 400 clamp(1.75rem, 2.7vw, 2.25rem)/1.2 var(--font-display), Georgia, serif; letter-spacing: -.025em; margin: 0 0 14px; max-width: 24ch; text-wrap: balance; }
 .tutoringHeader :global(.reveal-paragraph) { max-width: 60ch; margin-bottom: 0; }
 .tutoringDates { color: var(--muted); font-size: var(--text-small); }
-.chapterImage { max-width: 1000px; margin: 0 auto 34px; }
-.chapterImage img { display: block; width: 100%; height: auto; }
-.chapterImage figcaption { color: var(--muted); font-size: var(--text-small); line-height: 1.45; margin-top: 10px; }
 .tutoringDetails { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 50px; margin-top: 30px; }
 .tutoringDetails h3 { font: 400 clamp(1.375rem, 2vw, 1.75rem)/1.25 var(--font-display), Georgia, serif; letter-spacing: -.02em; margin: 0 0 16px; }
 .tutoringDetails :global(.reveal-paragraph) { max-width: 60ch; margin-bottom: 0; }
@@ -39,9 +36,6 @@
 .experiences :global(.reveal-paragraph) { margin-bottom: 16px; max-width: 60ch; }
 .experiences :global(.reveal-paragraph:last-child) { margin-bottom: 0; }
 .outreach { min-width: 0; }
-.outreachHero { max-width: 850px; margin: 0 auto 34px; }
-.outreachHero figure { margin: 0; }
-.outreachHero figcaption { color: var(--muted); font-size: var(--text-small); margin-top: 10px; }
 .outreachHeader { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 22px 50px; margin-bottom: 26px; }
 .outreachHeader h2 { font: 400 clamp(1.75rem, 2.7vw, 2.25rem)/1.2 var(--font-display), Georgia, serif; letter-spacing: -.025em; margin: 0 0 14px; max-width: 22ch; }
 .outreachMeta { display: flex; flex-wrap: wrap; gap: 6px 22px; color: var(--green); font-size: var(--text-small); }

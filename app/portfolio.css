@@ -60,9 +60,19 @@
 .intro-hint { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: clamp(1.25rem, 4svh, 2rem); color: var(--green); font-size: var(--text-small); }
 .intro-button:hover .intro-hint { color: var(--accent); }
 .intro-screen:focus-visible .intro-hint { color: var(--accent); text-decoration: underline; }
-.motion-settings { display: flex; align-items: center; gap: 12px; width: fit-content; color: var(--muted); font-size: .8125rem; }
-.motion-settings select { min-height: 44px; max-width: 10rem; padding: 6px 22px 6px 8px; border: 0; border-bottom: 1px solid var(--rule); border-radius: 0; background: var(--paper); color: var(--green); font: inherit; cursor: pointer; }
-.motion-settings select:disabled { cursor: default; }
+.motion-settings { display: flex; align-items: center; gap: 12px; width: fit-content; min-height: 44px; color: var(--muted); font-size: .8125rem; cursor: pointer; }
+.motion-control { display: inline-flex; align-items: center; gap: 8px; }
+.motion-switch { appearance: none; position: relative; flex-shrink: 0; width: 48px; height: 28px; margin: 0; border: 1px solid var(--muted); border-radius: 999px; background: var(--muted); cursor: pointer; transition: background-color .2s ease, border-color .2s ease; }
+.motion-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--paper); transition: transform .2s ease; }
+.motion-switch:checked { border-color: var(--green); background: var(--green); }
+.motion-switch:checked::after { transform: translateX(20px); }
+.motion-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.motion-switch-state { min-width: 1.75rem; }
+.motion-switch:checked + .motion-switch-state { color: var(--green); }
+.motion-settings:has(.motion-switch:disabled) { opacity: .5; cursor: default; }
+.motion-switch:disabled { cursor: default; }
+.portfolio[data-motion="reduced"] .motion-switch, .portfolio[data-motion="reduced"] .motion-switch::after { transition: none; }
+@media (prefers-reduced-motion: reduce) { .motion-switch, .motion-switch::after { transition: none; } }
 .intro-motion-settings { position: fixed; bottom: max(24px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); z-index: 101; }
 .menu-motion-settings { grid-column: 1 / -1; justify-self: center; }
 .menu-layer { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 80px 24px 48px; overflow-y: auto; }

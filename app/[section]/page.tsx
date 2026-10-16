@@ -7,7 +7,7 @@ export function generateStaticParams() { return sections.map(({ id }) => ({ sect
 export async function generateMetadata({ params }: { params: Promise<{ section: string }> }): Promise<Metadata> {
   const { section } = await params;
   const item = sections.find(({ id }) => id === section);
-  return { title: item?.title ?? "Page not found", description: item?.intro };
+  return { description: item?.intro };
 }
 export default async function SectionRoute({ params }: { params: Promise<{ section: string }> }) {
   const { section } = await params;

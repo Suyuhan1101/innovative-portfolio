@@ -331,7 +331,7 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
       if (musicPanelRef.current?.isOpen()) return;
       if (event.key === "Escape") { event.preventDefault(); void closeMenu(); }
       if (event.key !== "Tab") return;
-      const focusable = Array.from(menuRef.current?.querySelectorAll<HTMLElement>("a[href], button:not(:disabled), select:not(:disabled)") ?? []);
+      const focusable = Array.from(menuRef.current?.querySelectorAll<HTMLElement>("a[href], button:not(:disabled), input:not(:disabled), select:not(:disabled)") ?? []);
       const first = focusable[0]; const last = focusable[focusable.length - 1];
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
@@ -602,7 +602,13 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
     else mainRef.current?.querySelector<HTMLElement>("h1")?.focus({ preventScroll: true });
   };
 
-  const motionSettings = (className: string) => <label className={`motion-settings ${className}`}><span>Animations</span><select aria-label="Animation preference" value={motionPreference} disabled={busy} onChange={(event) => { if (isMotionPreference(event.target.value)) changeMotionPreference(event.target.value); }}><option value="full">Full</option><option value="reduced">Reduced</option><option value="system">Follow system</option></select></label>;
+  const motionSettings = (className: string) => <label className={`motion-settings ${className}`}>
+    <span>Animations</span>
+    <span className="motion-control">
+      <input className="motion-switch" type="checkbox" role="switch" aria-label="Animations" checked={!reduced} disabled={busy} onChange={(event) => changeMotionPreference(event.target.checked ? "full" : "reduced")} />
+      <span className="motion-switch-state" aria-hidden="true">{reduced ? "Off" : "On"}</span>
+    </span>
+  </label>;
 
   return <div className="portfolio" data-entered={entered} data-music-active={musicActive} data-phase={phase} data-motion={entered ? (reduced ? "reduced" : "full") : "pending"} data-motion-preference={motionPreference} data-transition-ms={elapsedRef.current} data-transition-sequence={traceRef.current.join(",")}>
     <header className={`site-header ${menuNavigation ? "over-menu" : ""}`} ref={headerRef} inert={!entered || (menuMounted && !menuNavigation)}>

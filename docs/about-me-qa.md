@@ -63,3 +63,13 @@ TypeScript 与 Next.js 生产构建通过，普通预览标签页无浏览器 er
 - 320px 的 clientWidth / scrollWidth 均为 305px；768px 均为 753px，全部短标签完整，无横向溢出。未模拟真实手机硬件触摸，本次窄屏交互使用桌面浏览器指针操作。
 - Reduced 模式下节点与奖杯 transitionDuration 为 0s，详情 animationName 为 none，Space 查看详情仍正常。测试后恢复 Full 与默认视口。
 - Next.js 生产构建及 TypeScript 通过，浏览器无 error 级别日志；没有新增依赖。截图：`qa/honors-network-preview.png`、`qa/honors-network-details.png`、`qa/honors-network-mobile.png`、`qa/honors-network-mobile-details.png`。
+
+## 2026-10-15：荣誉蜂巢
+
+- 按用户最新选择，用 11 个等大六边形替代中央奖杯与拖放网络；没有初始选中奖项。桌面为四／三／四，手机为两格／一格交替排列。
+- 实际鼠标悬停 USACO，上方介绍区显示 Silver Award in computing 与 2026；六边形左至右填充的 transitionDuration 实测为 0.55s。Escape 恢复默认介绍。
+- 键盘 Enter 打开 FTC，焦点落在详情区域，两次 Inspire Award 的赛事、年份和名次完整保留。Back to awards 恢复 FTC 来源按钮焦点并收起详情。
+- 方向键从 Good Clinical Practice 切到 Human Subjects Research。点击研究认证保留 CITI Program certification；Space 打开钢琴与国画详情，年份及 China Conservatory of Music 信息正确。
+- 桌面 11 格均约 177 × 205.6px；320px 窄屏均约 119.5 × 138.9px，文字完整。320px 的 clientWidth / scrollWidth 均为 305px；768px 均为 753px，无横向溢出。手机样式通过桌面响应式视口验证，未模拟真实手机硬件触摸。
+- 站内 Reduced 模式下，填色 transitionDuration 为 0s、详情 animationName 为 none，Space 仍可查看详情。测试后恢复 Full 与默认视口。
+- 最终 Next.js 生产构建与 TypeScript 通过，没有新增依赖。截图：`qa/honors-honeycomb-details.png`、`qa/honors-honeycomb-mobile.png`、`qa/honors-honeycomb-mobile-details.png`。
